@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg height="1250" version="1.1" width="1198" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#ffffff" height="104" stroke="#ffffff" stroke-width="1" width="104" x="129" y="14"/>
+<rect fill="none" height="104" stroke="#000000" stroke-width="1" width="104" x="129" y="14"/>
+<text font-family="Dialog" font-size="12" x="144" y="28">
+User Account</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="104" x="129" y="38"/>
+<text font-family="Dialog" font-size="12" x="133" y="53">
+email : string</text>
+<text font-family="Dialog" font-size="12" x="133" y="70">
+password : Hash</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="104" x="129" y="86"/>
+<text font-family="Dialog" font-size="12" x="133" y="101">
+edit()</text>
+<rect fill="#ffffff" height="279" stroke="#ffffff" stroke-width="1" width="113" x="113" y="310"/>
+<rect fill="none" height="279" stroke="#000000" stroke-width="1" width="113" x="113" y="310"/>
+<text font-family="Dialog" font-size="12" x="152" y="324">
+Profile</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="113" x="113" y="334"/>
+<text font-family="Dialog" font-size="12" x="117" y="349">
+firstname : string</text>
+<text font-family="Dialog" font-size="12" x="117" y="366">
+lastname : string</text>
+<text font-family="Dialog" font-size="12" x="117" y="383">
+gender : char</text>
+<text font-family="Dialog" font-size="12" x="117" y="400">
+dob : date</text>
+<text font-family="Dialog" font-size="12" x="117" y="417">
+phone : string</text>
+<text font-family="Dialog" font-size="12" x="117" y="434">
+email : string</text>
+<text font-family="Dialog" font-size="12" x="117" y="451">
+phone : string</text>
+<text font-family="Dialog" font-size="12" x="117" y="468">
+email : string</text>
+<text font-family="Dialog" font-size="12" x="117" y="485">
+designation : string</text>
+<text font-family="Dialog" font-size="12" x="117" y="502">
+verify_id : int</text>
+<text font-family="Dialog" font-size="12" x="117" y="519">
+verify_status : int</text>
+<text font-family="Dialog" font-size="12" x="117" y="536">
+inactive_flag : int</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="113" x="113" y="546"/>
+<text font-family="Dialog" font-size="12" x="117" y="561">
+verify()</text>
+<text font-family="Dialog" font-size="12" x="117" y="578">
+showTimeline()</text>
+<polyline fill="none" points="169,117 169,310" stroke="#000000" stroke-width="1"/>
+<rect fill="#ffffff" height="173" stroke="#ffffff" stroke-width="1" width="109" x="1065" y="686"/>
+<rect fill="none" height="173" stroke="#000000" stroke-width="1" width="109" x="1065" y="686"/>
+<text font-family="Dialog" font-size="12" x="1082" y="700">
+Yellow Pages</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="109" x="1065" y="710"/>
+<text font-family="Dialog" font-size="12" x="1069" y="725">
+name : string</text>
+<text font-family="Dialog" font-size="12" x="1069" y="742">
+phone : string</text>
+<text font-family="Dialog" font-size="12" x="1069" y="759">
+address : string</text>
+<text font-family="Dialog" font-size="12" x="1069" y="776">
+id : int</text>
+<text font-family="Dialog" font-size="12" x="1069" y="793">
+type : char</text>
+<text font-family="Dialog" font-size="12" x="1069" y="810">
+description : string</text>
+<text font-family="Dialog" font-size="12" x="1069" y="827">
+verified : int</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="109" x="1065" y="837"/>
+<rect fill="#ffffff" height="190" stroke="#ffffff" stroke-width="1" width="264" x="57" y="766"/>
+<rect fill="none" height="190" stroke="#000000" stroke-width="1" width="264" x="57" y="766"/>
+<text font-family="Dialog" font-size="12" x="150" y="780">
+Content Posts</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="264" x="57" y="790"/>
+<text font-family="Dialog" font-size="12" x="61" y="805">
+id : int</text>
+<text font-family="Dialog" font-size="12" x="61" y="822">
+profile_id : int</text>
+<text font-family="Dialog" font-size="12" x="61" y="839">
+title : string</text>
+<text font-family="Dialog" font-size="12" x="61" y="856">
+body : string</text>
+<text font-family="Dialog" font-size="12" x="61" y="873">
+createdat : timestamp</text>
+<text font-family="Dialog" font-size="12" x="61" y="890">
+updatedat : timestamp</text>
+<text font-family="Dialog" font-size="12" x="61" y="907">
+type : char</text>
+<text font-family="Dialog" font-size="12" x="61" y="924">
+priority : int</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="264" x="57" y="934"/>
+<rect fill="#ffffff" height="71" stroke="#ffffff" stroke-width="1" width="95" x="33" y="990"/>
+<rect fill="none" height="71" stroke="#000000" stroke-width="1" width="95" x="33" y="990"/>
+<text font-family="Dialog" font-size="12" x="68" y="1004">
+Blog</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="95" x="33" y="1014"/>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="95" x="33" y="1037"/>
+<polyline fill="none" points="89,990 89,955" stroke="#000000" stroke-width="1"/>
+<polygon fill="#ffffff" points="89,955 96,967 82,967" stroke="#ffffff" stroke-width="1"/>
+<polygon fill="none" points="89,955 96,967 82,967" stroke="#000000" stroke-width="1"/>
+<rect fill="#ffffff" height="68" stroke="#ffffff" stroke-width="1" width="81" x="177" y="990"/>
+<rect fill="none" height="68" stroke="#000000" stroke-width="1" width="81" x="177" y="990"/>
+<text font-family="Dialog" font-size="12" x="182" y="1004">
+Forum Posts</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="81" x="177" y="1014"/>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="81" x="177" y="1035"/>
+<polyline fill="none" points="217,990 217,955" stroke="#000000" stroke-width="1"/>
+<polygon fill="#ffffff" points="217,955 224,967 210,967" stroke="#ffffff" stroke-width="1"/>
+<polygon fill="none" points="217,955 224,967 210,967" stroke="#000000" stroke-width="1"/>
+<rect fill="#ffffff" height="126" stroke="#ffffff" stroke-width="1" width="104" x="201" y="1110"/>
+<rect fill="none" height="126" stroke="#000000" stroke-width="1" width="104" x="201" y="1110"/>
+<text font-family="Dialog" font-size="12" x="239" y="1124">
+Polls</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="104" x="201" y="1134"/>
+<text font-family="Dialog" font-size="12" x="205" y="1149">
+anonymous : int</text>
+<text font-family="Dialog" font-size="12" x="205" y="1166">
+interimResult : int</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="104" x="201" y="1176"/>
+<text font-family="Dialog" font-size="12" x="205" y="1191">
+createOption()</text>
+<text font-family="Dialog" font-size="12" x="205" y="1208">
+timeToLive()</text>
+<text font-family="Dialog" font-size="12" x="205" y="1225">
+selectAudience()</text>
+<rect fill="#ffffff" height="68" stroke="#ffffff" stroke-width="1" width="93" x="97" y="1070"/>
+<rect fill="none" height="68" stroke="#000000" stroke-width="1" width="93" x="97" y="1070"/>
+<text font-family="Dialog" font-size="12" x="102" y="1084">
+Announcement</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="93" x="97" y="1094"/>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="93" x="97" y="1115"/>
+<polyline fill="none" points="145,1070 145,955" stroke="#000000" stroke-width="1"/>
+<polygon fill="#ffffff" points="145,955 152,967 138,967" stroke="#ffffff" stroke-width="1"/>
+<polygon fill="none" points="145,955 152,967 138,967" stroke="#000000" stroke-width="1"/>
+<rect fill="#ffffff" height="147" stroke="#ffffff" stroke-width="1" width="129" x="1055" y="414"/>
+<rect fill="none" height="147" stroke="#000000" stroke-width="1" width="129" x="1055" y="414"/>
+<text font-family="Dialog" font-size="12" x="1099" y="428">
+Review</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="129" x="1055" y="438"/>
+<text font-family="Dialog" font-size="12" x="1059" y="453">
+id : int</text>
+<text font-family="Dialog" font-size="12" x="1059" y="470">
+user_id : int</text>
+<text font-family="Dialog" font-size="12" x="1059" y="487">
+post_id : int</text>
+<text font-family="Dialog" font-size="12" x="1059" y="504">
+timestamp : timestamp</text>
+<text font-family="Dialog" font-size="12" x="1059" y="521">
+comments : string</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="129" x="1055" y="535"/>
+<polyline fill="none" points="1117,686 1117,560" stroke="#000000" stroke-width="1"/>
+<rect fill="#ffffff" height="139" stroke="#ffffff" stroke-width="1" width="135" x="513" y="422"/>
+<rect fill="none" height="139" stroke="#000000" stroke-width="1" width="135" x="513" y="422"/>
+<text font-family="Dialog" font-size="12" x="553" y="436">
+Comment</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="135" x="513" y="446"/>
+<text font-family="Dialog" font-size="12" x="517" y="461">
+id : int</text>
+<text font-family="Dialog" font-size="12" x="517" y="478">
+user_id : int</text>
+<text font-family="Dialog" font-size="12" x="517" y="495">
+post_id : int</text>
+<text font-family="Dialog" font-size="12" x="517" y="512">
+timestamp : timestamp</text>
+<text font-family="Dialog" font-size="12" x="517" y="529">
+reason : string</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="135" x="513" y="539"/>
+<polyline fill="none" points="585,560 585,822 320,822" stroke="#000000" stroke-width="1"/>
+<rect fill="#ffffff" height="139" stroke="#ffffff" stroke-width="1" width="135" x="657" y="422"/>
+<rect fill="none" height="139" stroke="#000000" stroke-width="1" width="135" x="657" y="422"/>
+<text font-family="Dialog" font-size="12" x="710" y="436">
+Tags</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="135" x="657" y="446"/>
+<text font-family="Dialog" font-size="12" x="661" y="461">
+id : int</text>
+<text font-family="Dialog" font-size="12" x="661" y="478">
+user_id : int</text>
+<text font-family="Dialog" font-size="12" x="661" y="495">
+post_id : int</text>
+<text font-family="Dialog" font-size="12" x="661" y="512">
+timestamp : timestamp</text>
+<text font-family="Dialog" font-size="12" x="661" y="529">
+reason : string</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="135" x="657" y="539"/>
+<polyline fill="none" points="729,560 729,822 320,822" stroke="#000000" stroke-width="1"/>
+<rect fill="#ffffff" height="156" stroke="#ffffff" stroke-width="1" width="135" x="361" y="422"/>
+<rect fill="none" height="156" stroke="#000000" stroke-width="1" width="135" x="361" y="422"/>
+<text font-family="Dialog" font-size="12" x="391" y="436">
+Report Abuse</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="135" x="361" y="446"/>
+<text font-family="Dialog" font-size="12" x="365" y="461">
+id : int</text>
+<text font-family="Dialog" font-size="12" x="365" y="478">
+user_id : int</text>
+<text font-family="Dialog" font-size="12" x="365" y="495">
+post_id : int</text>
+<text font-family="Dialog" font-size="12" x="365" y="512">
+timestamp : timestamp</text>
+<text font-family="Dialog" font-size="12" x="365" y="529">
+reason : string</text>
+<text font-family="Dialog" font-size="12" x="365" y="546">
+profile_id : int</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="135" x="361" y="556"/>
+<polyline fill="none" points="433,577 433,822 320,822" stroke="#000000" stroke-width="1"/>
+<rect fill="#ffffff" height="68" stroke="#ffffff" stroke-width="1" width="67" x="281" y="990"/>
+<rect fill="none" height="68" stroke="#000000" stroke-width="1" width="67" x="281" y="990"/>
+<text font-family="Dialog" font-size="12" x="286" y="1004">
+Complaint</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="67" x="281" y="1014"/>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="67" x="281" y="1035"/>
+<polyline fill="none" points="305,990 305,955" stroke="#000000" stroke-width="1"/>
+<polygon fill="#ffffff" points="305,955 312,967 298,967" stroke="#ffffff" stroke-width="1"/>
+<polygon fill="none" points="305,955 312,967 298,967" stroke="#000000" stroke-width="1"/>
+<polyline fill="none" points="225,350 1129,350 1129,414" stroke="#000000" stroke-width="1"/>
+<polyline fill="none" points="225,350 729,350 729,422" stroke="#000000" stroke-width="1"/>
+<ellipse cx="513" cy="348" fill="#000000" rx="0.5" ry="0.5" stroke="#000000" stroke-width="1"/>
+<ellipse cx="514" cy="349" fill="#ffffff" rx="-0.5" ry="-0.5" stroke="#ffffff" stroke-width="1"/>
+<polyline fill="none" points="225,350 585,350 585,422" stroke="#000000" stroke-width="1"/>
+<polyline fill="none" points="225,350 433,350 433,422" stroke="#000000" stroke-width="1"/>
+<rect fill="#ffffff" height="122" stroke="#ffffff" stroke-width="1" width="93" x="177" y="150"/>
+<rect fill="none" height="122" stroke="#000000" stroke-width="1" width="93" x="177" y="150"/>
+<text font-family="Dialog" font-size="12" x="206" y="164">
+Admin</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="93" x="177" y="174"/>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="93" x="177" y="195"/>
+<text font-family="Dialog" font-size="12" x="181" y="210">
+viewReport()</text>
+<text font-family="Dialog" font-size="12" x="181" y="227">
+verifyAdmin()</text>
+<text font-family="Dialog" font-size="12" x="181" y="244">
+delete()</text>
+<text font-family="Dialog" font-size="12" x="181" y="261">
+delete_object()</text>
+<polyline fill="none" points="209,150 209,117" stroke="#000000" stroke-width="1"/>
+<polygon fill="#ffffff" points="209,117 216,129 202,129" stroke="#ffffff" stroke-width="1"/>
+<polygon fill="none" points="209,117 216,129 202,129" stroke="#000000" stroke-width="1"/>
+<polyline fill="none" points="233,1057 233,1110" stroke="#000000" stroke-width="1"/>
+<rect fill="#ffffff" height="139" stroke="#ffffff" stroke-width="1" width="135" x="865" y="422"/>
+<rect fill="none" height="139" stroke="#000000" stroke-width="1" width="135" x="865" y="422"/>
+<text font-family="Dialog" font-size="12" x="911" y="436">
+Ratings</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="135" x="865" y="446"/>
+<text font-family="Dialog" font-size="12" x="869" y="461">
+id : int</text>
+<text font-family="Dialog" font-size="12" x="869" y="478">
+user_id : int</text>
+<text font-family="Dialog" font-size="12" x="869" y="495">
+post_id : int</text>
+<text font-family="Dialog" font-size="12" x="869" y="512">
+timestamp : timestamp</text>
+<text font-family="Dialog" font-size="12" x="869" y="529">
+description : string</text>
+<rect fill="#000000" height="1" stroke="#000000" stroke-width="1" width="135" x="865" y="539"/>
+<polyline fill="none" points="225,350 921,350 921,422" stroke="#000000" stroke-width="1"/>
+<rect fill="#ffffff" height="48" stroke="#ffffff" stroke-width="1" width="72" x="65" y="646"/>
+<rect fill="none" height="48" stroke="#000000" stroke-width="1" width="72" x="65" y="646"/>
+<rect fill="#ffffff" height="48" stroke="#ffffff" stroke-width="1" width="72" x="209" y="646"/>
+<rect fill="none" height="48" stroke="#000000" stroke-width="1" width="72" x="209" y="646"/>
+</svg>
