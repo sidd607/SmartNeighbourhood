@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  poll_id: 1
+  option: 1
+  description: MyString
+  votecount: 1
+
+two:
+  poll_id: 1
+  option: 1
+  description: MyString
+  votecount: 1

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  post_id: 1
+  interim: 1
+  finish_time: 2015-11-05 14:44:44
+  anonimity: 1
+  vote_type: 1
+  community_id: 1
+  restricted_id: 1
+
+two:
+  user_id: 1
+  post_id: 1
+  interim: 1
+  finish_time: 2015-11-05 14:44:44
+  anonimity: 1
+  vote_type: 1
+  community_id: 1
+  restricted_id: 1

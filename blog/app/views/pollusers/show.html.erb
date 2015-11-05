@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Poll:</strong>
+  <%= @polluser.poll_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @polluser.user_id %>
+</p>
+
+<p>
+  <strong>Optionselected:</strong>
+  <%= @polluser.optionSelected %>
+</p>
+
+<%= link_to 'Edit', edit_polluser_path(@polluser) %> |
+<%= link_to 'Back', pollusers_path %>

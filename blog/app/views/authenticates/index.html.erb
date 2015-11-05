@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Authenticates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Password</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @authenticates.each do |authenticate| %>
+      <tr>
+        <td><%= authenticate.email %></td>
+        <td><%= authenticate.password %></td>
+        <td><%= link_to 'Show', authenticate %></td>
+        <td><%= link_to 'Edit', edit_authenticate_path(authenticate) %></td>
+        <td><%= link_to 'Destroy', authenticate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Authenticate', new_authenticate_path %>

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @poll.user_id %>
+</p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @poll.post_id %>
+</p>
+
+<p>
+  <strong>Interim:</strong>
+  <%= @poll.interim %>
+</p>
+
+<p>
+  <strong>Finish time:</strong>
+  <%= @poll.finish_time %>
+</p>
+
+<p>
+  <strong>Anonimity:</strong>
+  <%= @poll.anonimity %>
+</p>
+
+<p>
+  <strong>Vote type:</strong>
+  <%= @poll.vote_type %>
+</p>
+
+<p>
+  <strong>Community:</strong>
+  <%= @poll.community_id %>
+</p>
+
+<p>
+  <strong>Restricted:</strong>
+  <%= @poll.restricted_id %>
+</p>
+
+<%= link_to 'Edit', edit_poll_path(@poll) %> |
+<%= link_to 'Back', polls_path %>

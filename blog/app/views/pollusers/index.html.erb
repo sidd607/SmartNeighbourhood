@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Pollusers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Poll</th>
+      <th>User</th>
+      <th>Optionselected</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pollusers.each do |polluser| %>
+      <tr>
+        <td><%= polluser.poll_id %></td>
+        <td><%= polluser.user_id %></td>
+        <td><%= polluser.optionSelected %></td>
+        <td><%= link_to 'Show', polluser %></td>
+        <td><%= link_to 'Edit', edit_polluser_path(polluser) %></td>
+        <td><%= link_to 'Destroy', polluser, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Polluser', new_polluser_path %>

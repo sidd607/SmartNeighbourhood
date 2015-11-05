@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Page:</strong>
+  <%= @yellowpage.page_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @yellowpage.user_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @yellowpage.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @yellowpage.phone %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @yellowpage.address %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @yellowpage.description %>
+</p>
+
+<p>
+  <strong>Verified:</strong>
+  <%= @yellowpage.verified %>
+</p>
+
+<p>
+  <strong>Community:</strong>
+  <%= @yellowpage.community_id %>
+</p>
+
+<p>
+  <strong>Averating:</strong>
+  <%= @yellowpage.AveRating %>
+</p>
+
+<p>
+  <strong>Totalratings:</strong>
+  <%= @yellowpage.totalRatings %>
+</p>
+
+<%= link_to 'Edit', edit_yellowpage_path(@yellowpage) %> |
+<%= link_to 'Back', yellowpages_path %>

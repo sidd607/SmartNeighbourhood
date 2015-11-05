@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Polls</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Post</th>
+      <th>Interim</th>
+      <th>Finish time</th>
+      <th>Anonimity</th>
+      <th>Vote type</th>
+      <th>Community</th>
+      <th>Restricted</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @polls.each do |poll| %>
+      <tr>
+        <td><%= poll.user_id %></td>
+        <td><%= poll.post_id %></td>
+        <td><%= poll.interim %></td>
+        <td><%= poll.finish_time %></td>
+        <td><%= poll.anonimity %></td>
+        <td><%= poll.vote_type %></td>
+        <td><%= poll.community_id %></td>
+        <td><%= poll.restricted_id %></td>
+        <td><%= link_to 'Show', poll %></td>
+        <td><%= link_to 'Edit', edit_poll_path(poll) %></td>
+        <td><%= link_to 'Destroy', poll, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Poll', new_poll_path %>

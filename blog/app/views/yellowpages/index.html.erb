@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Yellowpages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Page</th>
+      <th>User</th>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Address</th>
+      <th>Description</th>
+      <th>Verified</th>
+      <th>Community</th>
+      <th>Averating</th>
+      <th>Totalratings</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @yellowpages.each do |yellowpage| %>
+      <tr>
+        <td><%= yellowpage.page_id %></td>
+        <td><%= yellowpage.user_id %></td>
+        <td><%= yellowpage.name %></td>
+        <td><%= yellowpage.phone %></td>
+        <td><%= yellowpage.address %></td>
+        <td><%= yellowpage.description %></td>
+        <td><%= yellowpage.verified %></td>
+        <td><%= yellowpage.community_id %></td>
+        <td><%= yellowpage.AveRating %></td>
+        <td><%= yellowpage.totalRatings %></td>
+        <td><%= link_to 'Show', yellowpage %></td>
+        <td><%= link_to 'Edit', edit_yellowpage_path(yellowpage) %></td>
+        <td><%= link_to 'Destroy', yellowpage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Yellowpage', new_yellowpage_path %>

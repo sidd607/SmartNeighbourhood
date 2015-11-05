@@ -1,0 +1,57 @@
+<%= form_for(@yellowpage) do |f| %>
+  <% if @yellowpage.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@yellowpage.errors.count, "error") %> prohibited this yellowpage from being saved:</h2>
+
+      <ul>
+      <% @yellowpage.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :page_id %><br>
+    <%= f.number_field :page_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :verified %><br>
+    <%= f.number_field :verified %>
+  </div>
+  <div class="field">
+    <%= f.label :community_id %><br>
+    <%= f.number_field :community_id %>
+  </div>
+  <div class="field">
+    <%= f.label :AveRating %><br>
+    <%= f.text_field :AveRating %>
+  </div>
+  <div class="field">
+    <%= f.label :totalRatings %><br>
+    <%= f.number_field :totalRatings %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
