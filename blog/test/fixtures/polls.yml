@@ -3,8 +3,10 @@
 one:
   user_id: 1
   post_id: 1
+  options: MyText
+  user_response: MyText
   interim: 1
-  finish_time: 2015-11-05 14:44:44
+  finish_time: 2015-11-05 23:15:41
   anonimity: 1
   vote_type: 1
   community_id: 1
@@ -13,8 +15,10 @@ one:
 two:
   user_id: 1
   post_id: 1
+  options: MyText
+  user_response: MyText
   interim: 1
-  finish_time: 2015-11-05 14:44:44
+  finish_time: 2015-11-05 23:15:41
   anonimity: 1
   vote_type: 1
   community_id: 1

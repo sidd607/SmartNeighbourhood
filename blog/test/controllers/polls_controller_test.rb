@@ -18,7 +18,7 @@ class PollsControllerTest < ActionController::TestCase
 
   test "should create poll" do
     assert_difference('Poll.count') do
-      post :create, poll: { anonimity: @poll.anonimity, community_id: @poll.community_id, finish_time: @poll.finish_time, interim: @poll.interim, post_id: @poll.post_id, restricted_id: @poll.restricted_id, user_id: @poll.user_id, vote_type: @poll.vote_type }
+      post :create, poll: { anonimity: @poll.anonimity, community_id: @poll.community_id, finish_time: @poll.finish_time, interim: @poll.interim, options: @poll.options, post_id: @poll.post_id, restricted_id: @poll.restricted_id, user_id: @poll.user_id, user_response: @poll.user_response, vote_type: @poll.vote_type }
     end
 
     assert_redirected_to poll_path(assigns(:poll))
@@ -35,7 +35,7 @@ class PollsControllerTest < ActionController::TestCase
   end
 
   test "should update poll" do
-    patch :update, id: @poll, poll: { anonimity: @poll.anonimity, community_id: @poll.community_id, finish_time: @poll.finish_time, interim: @poll.interim, post_id: @poll.post_id, restricted_id: @poll.restricted_id, user_id: @poll.user_id, vote_type: @poll.vote_type }
+    patch :update, id: @poll, poll: { anonimity: @poll.anonimity, community_id: @poll.community_id, finish_time: @poll.finish_time, interim: @poll.interim, options: @poll.options, post_id: @poll.post_id, restricted_id: @poll.restricted_id, user_id: @poll.user_id, user_response: @poll.user_response, vote_type: @poll.vote_type }
     assert_redirected_to poll_path(assigns(:poll))
   end
 

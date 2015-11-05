@@ -69,6 +69,6 @@ class YellowpagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def yellowpage_params
-      params.require(:yellowpage).permit(:page_id, :user_id, :name, :phone, :address, :description, :verified, :community_id, :AveRating, :totalRatings)
+      params.require(:yellowpage).permit(:user_id, :name, :phone, :address, :description, :verified, :community_id, :AveRating, :totalRatings)
     end
 end

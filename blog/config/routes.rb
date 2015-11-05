@@ -1,5 +1,27 @@
 Rails.application.routes.draw do
   resources :authenticates
+  resources :polls
+  resources :reports
+  resources :ratings
+  resources :tags
+  resources :comments
+  resources :yellowpages
+  resources :posts
+  resources :users
+  resources :communities
+  resources :roles
+  resources :authenticates
+  resources :polls
+  resources :reports
+  resources :ratings
+  resources :tags
+  resources :comments
+  resources :yellowpages
+  resources :posts
+  resources :users
+  resources :communities
+  resources :roles
+  resources :authenticates
   resources :pollusers
   resources :polloptions
   resources :polls

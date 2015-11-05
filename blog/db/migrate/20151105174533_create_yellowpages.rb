@@ -14,5 +14,6 @@ class CreateYellowpages < ActiveRecord::Migration
       t.timestamps null: false
     end
     add_foreign_key :yellowpages, :users
+    add_foreign_key :yellowpages, :communities
   end
 end

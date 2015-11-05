@@ -10,9 +10,9 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :verified
       t.integer :verify_id
       t.integer :inactive
+      t.integer :showPhone
       t.integer :role_id
       t.integer :community_id
-      t.integer :showPhone
       t.timestamp :verifytime
       t.string :door_no
 
