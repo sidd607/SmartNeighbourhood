@@ -5,6 +5,10 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.2'
 # Use mysql as the database for Active Record
 gem 'mysql2'
+#liquid
+gem 'liquid-rails' , '~> 0.1.3'
+#paperclip for uploading images to the application
+gem "paperclip", "~> 4.3"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

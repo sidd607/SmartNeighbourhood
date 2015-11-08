@@ -7,6 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+@test='<b>hello</b>' 
+<% raw @test.content %>
 <% if current_user %>
     Logged in as <%= current_user.email %>.
     <%= link_to "Log Out", logout_path %>
