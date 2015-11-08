@@ -6,7 +6,7 @@ one:
   options: MyText
   user_response: MyText
   interim: 1
-  finish_time: 2015-11-05 23:15:41
+  finish_time: 2015-11-08 14:15:15
   anonimity: 1
   vote_type: 1
   community_id: 1
@@ -18,7 +18,7 @@ two:
   options: MyText
   user_response: MyText
   interim: 1
-  finish_time: 2015-11-05 23:15:41
+  finish_time: 2015-11-08 14:15:15
   anonimity: 1
   vote_type: 1
   community_id: 1

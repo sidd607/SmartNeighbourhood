@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @profile.firstName %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @profile.LastName %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @profile.gender %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @profile.DOB %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @profile.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @profile.email %>
+</p>
+
+<p>
+  <strong>Verified:</strong>
+  <%= @profile.verified %>
+</p>
+
+<p>
+  <strong>Verify:</strong>
+  <%= @profile.verify_id %>
+</p>
+
+<p>
+  <strong>Inactive:</strong>
+  <%= @profile.inactive %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @profile.role_id %>
+</p>
+
+<p>
+  <strong>Community:</strong>
+  <%= @profile.community_id %>
+</p>
+
+<p>
+  <strong>Showphone:</strong>
+  <%= @profile.showPhone %>
+</p>
+
+<p>
+  <strong>Verifytime:</strong>
+  <%= @profile.verifytime %>
+</p>
+
+<p>
+  <strong>Door no:</strong>
+  <%= @profile.door_no %>
+</p>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>

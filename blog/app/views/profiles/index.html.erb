@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Profiles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Gender</th>
+      <th>Dob</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Verified</th>
+      <th>Verify</th>
+      <th>Inactive</th>
+      <th>Role</th>
+      <th>Community</th>
+      <th>Showphone</th>
+      <th>Verifytime</th>
+      <th>Door no</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @profiles.each do |profile| %>
+      <tr>
+        <td><%= profile.firstName %></td>
+        <td><%= profile.LastName %></td>
+        <td><%= profile.gender %></td>
+        <td><%= profile.DOB %></td>
+        <td><%= profile.phone %></td>
+        <td><%= profile.email %></td>
+        <td><%= profile.verified %></td>
+        <td><%= profile.verify_id %></td>
+        <td><%= profile.inactive %></td>
+        <td><%= profile.role_id %></td>
+        <td><%= profile.community_id %></td>
+        <td><%= profile.showPhone %></td>
+        <td><%= profile.verifytime %></td>
+        <td><%= profile.door_no %></td>
+        <td><%= link_to 'Show', profile %></td>
+        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Profile', new_profile_path %>

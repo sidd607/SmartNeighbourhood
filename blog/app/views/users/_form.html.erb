@@ -1,3 +1,5 @@
+<h1> Sign Up</h1>
+
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -12,61 +14,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :firstName %><br>
-    <%= f.text_field :firstName %>
-  </div>
-  <div class="field">
-    <%= f.label :LastName %><br>
-    <%= f.text_field :LastName %>
-  </div>
-  <div class="field">
-    <%= f.label :gender %><br>
-    <%= f.text_field :gender %>
-  </div>
-  <div class="field">
-    <%= f.label :DOB %><br>
-    <%= f.date_select :DOB %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :verified %><br>
-    <%= f.number_field :verified %>
+    <%= f.label :password %><br>
+    <%= f.text_field :password %>
   </div>
-  <div class="field">
-    <%= f.label :verify_id %><br>
-    <%= f.number_field :verify_id %>
-  </div>
-  <div class="field">
-    <%= f.label :inactive %><br>
-    <%= f.number_field :inactive %>
-  </div>
-  <div class="field">
-    <%= f.label :role_id %><br>
-    <%= f.number_field :role_id %>
-  </div>
-  <div class="field">
-    <%= f.label :community_id %><br>
-    <%= f.number_field :community_id %>
-  </div>
-  <div class="field">
-    <%= f.label :showPhone %><br>
-    <%= f.number_field :showPhone %>
-  </div>
-  <div class="field">
-    <%= f.label :verifytime %><br>
-    <%= f.datetime_select :verifytime %>
-  </div>
-  <div class="field">
-    <%= f.label :door_no %><br>
-    <%= f.text_field :door_no %>
-  </div>
+    <div class="field">
+      <%= f.label :password_confirmation %><br>
+      <%= f.text_field :password_confirmation %>
+    </div>
   <div class="actions">
     <%= f.submit %>
   </div>

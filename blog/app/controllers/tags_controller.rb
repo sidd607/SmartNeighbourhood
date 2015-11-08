@@ -1,5 +1,6 @@
 class TagsController < ApplicationController
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
+  before_filter :authorize
 
   # GET /tags
   # GET /tags.json
@@ -69,6 +70,6 @@ class TagsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tag_params
-      params.require(:tag).permit(:name, :post_id, :type)
+      params.require(:tag).permit(:name, :post_id, :user_id, :type)
     end
 end

@@ -11,17 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105174542) do
-
-  create_table "authenticates", force: :cascade do |t|
-    t.string   "email",      limit: 255
-    t.string   "password",   limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
+ActiveRecord::Schema.define(version: 20151108084517) do
 
   create_table "comments", force: :cascade do |t|
-    t.integer  "user_id",     limit: 4
+    t.integer  "profile_id",  limit: 4
     t.string   "description", limit: 255
     t.integer  "type",        limit: 4
     t.datetime "createdate"
@@ -30,7 +23,7 @@ ActiveRecord::Schema.define(version: 20151105174542) do
     t.datetime "updated_at",              null: false
   end
 
-  add_index "comments", ["user_id"], name: "fk_rails_03de2dc08c", using: :btree
+  add_index "comments", ["profile_id"], name: "fk_rails_f1b0e5bff7", using: :btree
 
   create_table "communities", force: :cascade do |t|
     t.string   "pincode",    limit: 255
@@ -42,7 +35,7 @@ ActiveRecord::Schema.define(version: 20151105174542) do
   end
 
   create_table "polls", force: :cascade do |t|
-    t.integer  "user_id",       limit: 4
+    t.integer  "profile_id",    limit: 4
     t.integer  "post_id",       limit: 4
     t.text     "options",       limit: 65535
     t.text     "user_response", limit: 65535
@@ -58,11 +51,11 @@ ActiveRecord::Schema.define(version: 20151105174542) do
 
   add_index "polls", ["community_id"], name: "fk_rails_eb1a0577c8", using: :btree
   add_index "polls", ["post_id"], name: "fk_rails_b50b782d08", using: :btree
-  add_index "polls", ["user_id"], name: "fk_rails_16e77efa22", using: :btree
+  add_index "polls", ["profile_id"], name: "fk_rails_3c2699afab", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.integer  "community_id", limit: 4
-    t.integer  "user_id",      limit: 4
+    t.integer  "profile_id",   limit: 4
     t.string   "title",        limit: 255
     t.string   "body",         limit: 255
     t.datetime "create_date"
@@ -77,52 +70,9 @@ ActiveRecord::Schema.define(version: 20151105174542) do
   end
 
   add_index "posts", ["community_id"], name: "fk_rails_e070049175", using: :btree
-  add_index "posts", ["user_id"], name: "fk_rails_5b5ddfd518", using: :btree
+  add_index "posts", ["profile_id"], name: "fk_rails_cd61a4aa45", using: :btree
 
-  create_table "ratings", force: :cascade do |t|
-    t.integer  "post_id",     limit: 4
-    t.integer  "user_id",     limit: 4
-    t.integer  "rate",        limit: 4
-    t.datetime "rated_at"
-    t.integer  "type",        limit: 4
-    t.string   "Description", limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-  end
-
-  add_index "ratings", ["user_id"], name: "fk_rails_a7dfeb9f5f", using: :btree
-
-  create_table "reports", force: :cascade do |t|
-    t.integer  "user_id",     limit: 4
-    t.integer  "post_id",     limit: 4
-    t.integer  "type",        limit: 4
-    t.integer  "profile_id",  limit: 4
-    t.string   "reason",      limit: 255
-    t.datetime "reported_at"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-  end
-
-  add_index "reports", ["user_id"], name: "fk_rails_c7699d537d", using: :btree
-
-  create_table "roles", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  create_table "tags", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.integer  "user_id",    limit: 4
-    t.integer  "post_id",    limit: 4
-    t.integer  "type",       limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
-  add_index "tags", ["user_id"], name: "fk_rails_e689f6d0cc", using: :btree
-
-  create_table "users", force: :cascade do |t|
+  create_table "profiles", force: :cascade do |t|
     t.string   "firstName",    limit: 255
     t.string   "LastName",     limit: 255
     t.string   "gender",       limit: 255
@@ -141,11 +91,60 @@ ActiveRecord::Schema.define(version: 20151105174542) do
     t.datetime "updated_at",               null: false
   end
 
-  add_index "users", ["community_id"], name: "fk_rails_91a317e2c5", using: :btree
-  add_index "users", ["role_id"], name: "fk_rails_642f17018b", using: :btree
+  add_index "profiles", ["community_id"], name: "fk_rails_ee594be71a", using: :btree
+  add_index "profiles", ["role_id"], name: "fk_rails_dd83ee4c4e", using: :btree
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "post_id",     limit: 4
+    t.integer  "profile_id",  limit: 4
+    t.integer  "rate",        limit: 4
+    t.datetime "rated_at"
+    t.integer  "type",        limit: 4
+    t.string   "Description", limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "ratings", ["profile_id"], name: "fk_rails_3a6ec44980", using: :btree
+
+  create_table "reports", force: :cascade do |t|
+    t.integer  "profile_id",  limit: 4
+    t.integer  "post_id",     limit: 4
+    t.integer  "type",        limit: 4
+    t.string   "reason",      limit: 255
+    t.datetime "reported_at"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "reports", ["profile_id"], name: "fk_rails_b0728d5414", using: :btree
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "post_id",    limit: 4
+    t.integer  "profile_id", limit: 4
+    t.integer  "type",       limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "tags", ["profile_id"], name: "fk_rails_5d750c0ce0", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",      limit: 255
+    t.string   "password",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "yellowpages", force: :cascade do |t|
-    t.integer  "user_id",      limit: 4
+    t.integer  "profile_id",   limit: 4
     t.string   "name",         limit: 255
     t.string   "phone",        limit: 255
     t.string   "address",      limit: 255
@@ -159,19 +158,19 @@ ActiveRecord::Schema.define(version: 20151105174542) do
   end
 
   add_index "yellowpages", ["community_id"], name: "fk_rails_75feb902bd", using: :btree
-  add_index "yellowpages", ["user_id"], name: "fk_rails_669996509c", using: :btree
+  add_index "yellowpages", ["profile_id"], name: "fk_rails_e17757794a", using: :btree
 
-  add_foreign_key "comments", "users"
+  add_foreign_key "comments", "profiles"
   add_foreign_key "polls", "communities"
   add_foreign_key "polls", "posts"
-  add_foreign_key "polls", "users"
+  add_foreign_key "polls", "profiles"
   add_foreign_key "posts", "communities"
-  add_foreign_key "posts", "users"
-  add_foreign_key "ratings", "users"
-  add_foreign_key "reports", "users"
-  add_foreign_key "tags", "users"
-  add_foreign_key "users", "communities"
-  add_foreign_key "users", "roles"
+  add_foreign_key "posts", "profiles"
+  add_foreign_key "profiles", "communities"
+  add_foreign_key "profiles", "roles"
+  add_foreign_key "ratings", "profiles"
+  add_foreign_key "reports", "profiles"
+  add_foreign_key "tags", "profiles"
   add_foreign_key "yellowpages", "communities"
-  add_foreign_key "yellowpages", "users"
+  add_foreign_key "yellowpages", "profiles"
 end

@@ -1,0 +1,73 @@
+<%= form_for(@profile) do |f| %>
+  <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% @profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :firstName %><br>
+    <%= f.text_field :firstName %>
+  </div>
+  <div class="field">
+    <%= f.label :LastName %><br>
+    <%= f.text_field :LastName %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br>
+    <%= f.text_field :gender %>
+  </div>
+  <div class="field">
+    <%= f.label :DOB %><br>
+    <%= f.date_select :DOB %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :verified %><br>
+    <%= f.number_field :verified %>
+  </div>
+  <div class="field">
+    <%= f.label :verify_id %><br>
+    <%= f.number_field :verify_id %>
+  </div>
+  <div class="field">
+    <%= f.label :inactive %><br>
+    <%= f.number_field :inactive %>
+  </div>
+  <div class="field">
+    <%= f.label :role_id %><br>
+    <%= f.number_field :role_id %>
+  </div>
+  <div class="field">
+    <%= f.label :community_id %><br>
+    <%= f.number_field :community_id %>
+  </div>
+  <div class="field">
+    <%= f.label :showPhone %><br>
+    <%= f.number_field :showPhone %>
+  </div>
+  <div class="field">
+    <%= f.label :verifytime %><br>
+    <%= f.datetime_select :verifytime %>
+  </div>
+  <div class="field">
+    <%= f.label :door_no %><br>
+    <%= f.text_field :door_no %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
