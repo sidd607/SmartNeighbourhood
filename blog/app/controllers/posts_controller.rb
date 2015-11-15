@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize
+  before_filter :authorize, :user_profile_complete
 
   # GET /posts
   # GET /posts.json
@@ -70,6 +70,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:community_id, :user_id, :title, :body, :create_date, :update_date, :type, :priority, :report, :rating, :rateCount)
+      params.require(:post).permit(:community_id, :profile_id, :title, :body, :create_date, :update_date, :type, :priority, :report, :rating, :rateCount)
     end
 end

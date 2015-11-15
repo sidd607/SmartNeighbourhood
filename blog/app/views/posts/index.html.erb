@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Community</th>
-      <th>User</th>
+      <th>Profile</th>
       <th>Title</th>
       <th>Body</th>
       <th>Create date</th>
@@ -24,7 +24,7 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.community_id %></td>
-        <td><%= post.user_id %></td>
+        <td><%= post.profile_id %></td>
         <td><%= post.title %></td>
         <td><%= post.body %></td>
         <td><%= post.create_date %></td>

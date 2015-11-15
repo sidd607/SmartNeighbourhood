@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
+  get 'createprofile', to: 'profiles#new', as: 'createprofile'
 
   resources :users
   resources :polls
@@ -15,7 +16,6 @@ Rails.application.routes.draw do
   resources :profiles
   resources :communities
   resources :roles
-  resources :polls
   resources :sessions
 
 

@@ -1,6 +1,6 @@
 class RatingsController < ApplicationController
   before_action :set_rating, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize
+  before_filter :authorize, :user_profile_complete
 
   # GET /ratings
   # GET /ratings.json
@@ -70,6 +70,6 @@ class RatingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rating_params
-      params.require(:rating).permit(:post_id, :user_id, :rate, :rated_at, :type, :Description)
+      params.require(:rating).permit(:post_id, :profile_id, :rate, :rated_at, :type, :Description)
     end
 end

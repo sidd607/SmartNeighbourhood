@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize
-
+  before_filter :authorize, :user_profile_complete
   # GET /comments
   # GET /comments.json
   def index
@@ -70,6 +69,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:user_id, :description, :type, :createdate, :report)
+      params.require(:comment).permit(:profile_id, :description, :type, :createdate, :report)
     end
 end

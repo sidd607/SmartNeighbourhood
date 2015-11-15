@@ -18,7 +18,7 @@ class ReportsControllerTest < ActionController::TestCase
 
   test "should create report" do
     assert_difference('Report.count') do
-      post :create, report: { post_id: @report.post_id, profile_id: @report.profile_id, reason: @report.reason, reported_at: @report.reported_at, type: @report.type, user_id: @report.user_id }
+      post :create, report: { post_id: @report.post_id, profile_id: @report.profile_id, profile_id: @report.profile_id, reason: @report.reason, reported_at: @report.reported_at, type: @report.type }
     end
 
     assert_redirected_to report_path(assigns(:report))
@@ -35,7 +35,7 @@ class ReportsControllerTest < ActionController::TestCase
   end
 
   test "should update report" do
-    patch :update, id: @report, report: { post_id: @report.post_id, profile_id: @report.profile_id, reason: @report.reason, reported_at: @report.reported_at, type: @report.type, user_id: @report.user_id }
+    patch :update, id: @report, report: { post_id: @report.post_id, profile_id: @report.profile_id, profile_id: @report.profile_id, reason: @report.reason, reported_at: @report.reported_at, type: @report.type }
     assert_redirected_to report_path(assigns(:report))
   end
 

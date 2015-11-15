@@ -15,5 +15,6 @@ class CreateYellowpages < ActiveRecord::Migration
     end
     add_foreign_key :yellowpages, :profiles
     add_foreign_key :yellowpages, :communities
+
   end
 end

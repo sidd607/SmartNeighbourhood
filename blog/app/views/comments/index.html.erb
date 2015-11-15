@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
+      <th>Profile</th>
       <th>Description</th>
       <th>Type</th>
       <th>Createdate</th>
@@ -17,7 +17,7 @@
   <tbody>
     <% @comments.each do |comment| %>
       <tr>
-        <td><%= comment.user_id %></td>
+        <td><%= comment.profile_id %></td>
         <td><%= comment.description %></td>
         <td><%= comment.type %></td>
         <td><%= comment.createdate %></td>

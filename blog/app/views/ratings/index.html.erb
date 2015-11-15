@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Post</th>
-      <th>User</th>
+      <th>Profile</th>
       <th>Rate</th>
       <th>Rated at</th>
       <th>Type</th>
@@ -19,7 +19,7 @@
     <% @ratings.each do |rating| %>
       <tr>
         <td><%= rating.post_id %></td>
-        <td><%= rating.user_id %></td>
+        <td><%= rating.profile_id %></td>
         <td><%= rating.rate %></td>
         <td><%= rating.rated_at %></td>
         <td><%= rating.type %></td>

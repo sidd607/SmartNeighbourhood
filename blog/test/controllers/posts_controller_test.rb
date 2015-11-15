@@ -18,7 +18,7 @@ class PostsControllerTest < ActionController::TestCase
 
   test "should create post" do
     assert_difference('Post.count') do
-      post :create, post: { body: @post.body, community_id: @post.community_id, create_date: @post.create_date, priority: @post.priority, rateCount: @post.rateCount, rating: @post.rating, report: @post.report, title: @post.title, type: @post.type, update_date: @post.update_date, user_id: @post.user_id }
+      post :create, post: { body: @post.body, community_id: @post.community_id, create_date: @post.create_date, priority: @post.priority, profile_id: @post.profile_id, rateCount: @post.rateCount, rating: @post.rating, report: @post.report, title: @post.title, type: @post.type, update_date: @post.update_date }
     end
 
     assert_redirected_to post_path(assigns(:post))
@@ -35,7 +35,7 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test "should update post" do
-    patch :update, id: @post, post: { body: @post.body, community_id: @post.community_id, create_date: @post.create_date, priority: @post.priority, rateCount: @post.rateCount, rating: @post.rating, report: @post.report, title: @post.title, type: @post.type, update_date: @post.update_date, user_id: @post.user_id }
+    patch :update, id: @post, post: { body: @post.body, community_id: @post.community_id, create_date: @post.create_date, priority: @post.priority, profile_id: @post.profile_id, rateCount: @post.rateCount, rating: @post.rating, report: @post.report, title: @post.title, type: @post.type, update_date: @post.update_date }
     assert_redirected_to post_path(assigns(:post))
   end
 

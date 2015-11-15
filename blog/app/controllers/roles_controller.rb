@@ -1,6 +1,6 @@
 class RolesController < ApplicationController
   before_action :set_role, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize
+  before_filter :authorize, :user_profile_complete
 
   # GET /roles
   # GET /roles.json

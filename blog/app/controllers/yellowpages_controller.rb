@@ -1,6 +1,6 @@
 class YellowpagesController < ApplicationController
   before_action :set_yellowpage, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize
+  before_filter :authorize, :user_profile_complete
 
   # GET /yellowpages
   # GET /yellowpages.json
@@ -70,6 +70,6 @@ class YellowpagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def yellowpage_params
-      params.require(:yellowpage).permit(:user_id, :name, :phone, :address, :description, :verified, :community_id, :AveRating, :totalRatings)
+      params.require(:yellowpage).permit(:profile_id, :name, :phone, :address, :description, :verified, :community_id, :AveRating, :totalRatings)
     end
 end

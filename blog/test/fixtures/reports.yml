@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: 1
+  profile_id: 1
   post_id: 1
   type: 1
   profile_id: 1
   reason: MyString
-  reported_at: 2015-11-08 14:15:14
+  reported_at: 2015-11-10 01:40:51
 
 two:
-  user_id: 1
+  profile_id: 1
   post_id: 1
   type: 1
   profile_id: 1
   reason: MyString
-  reported_at: 2015-11-08 14:15:14
+  reported_at: 2015-11-10 01:40:51

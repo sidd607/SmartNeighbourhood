@@ -18,7 +18,7 @@ class YellowpagesControllerTest < ActionController::TestCase
 
   test "should create yellowpage" do
     assert_difference('Yellowpage.count') do
-      post :create, yellowpage: { AveRating: @yellowpage.AveRating, address: @yellowpage.address, community_id: @yellowpage.community_id, description: @yellowpage.description, name: @yellowpage.name, phone: @yellowpage.phone, totalRatings: @yellowpage.totalRatings, user_id: @yellowpage.user_id, verified: @yellowpage.verified }
+      post :create, yellowpage: { AveRating: @yellowpage.AveRating, address: @yellowpage.address, community_id: @yellowpage.community_id, description: @yellowpage.description, name: @yellowpage.name, phone: @yellowpage.phone, profile_id: @yellowpage.profile_id, totalRatings: @yellowpage.totalRatings, verified: @yellowpage.verified }
     end
 
     assert_redirected_to yellowpage_path(assigns(:yellowpage))
@@ -35,7 +35,7 @@ class YellowpagesControllerTest < ActionController::TestCase
   end
 
   test "should update yellowpage" do
-    patch :update, id: @yellowpage, yellowpage: { AveRating: @yellowpage.AveRating, address: @yellowpage.address, community_id: @yellowpage.community_id, description: @yellowpage.description, name: @yellowpage.name, phone: @yellowpage.phone, totalRatings: @yellowpage.totalRatings, user_id: @yellowpage.user_id, verified: @yellowpage.verified }
+    patch :update, id: @yellowpage, yellowpage: { AveRating: @yellowpage.AveRating, address: @yellowpage.address, community_id: @yellowpage.community_id, description: @yellowpage.description, name: @yellowpage.name, phone: @yellowpage.phone, profile_id: @yellowpage.profile_id, totalRatings: @yellowpage.totalRatings, verified: @yellowpage.verified }
     assert_redirected_to yellowpage_path(assigns(:yellowpage))
   end
 

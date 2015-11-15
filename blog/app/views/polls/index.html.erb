@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
+      <th>Profile</th>
       <th>Post</th>
       <th>Options</th>
       <th>User response</th>
@@ -22,7 +22,7 @@
   <tbody>
     <% @polls.each do |poll| %>
       <tr>
-        <td><%= poll.user_id %></td>
+        <td><%= poll.profile_id %></td>
         <td><%= poll.post_id %></td>
         <td><%= poll.options %></td>
         <td><%= poll.user_response %></td>

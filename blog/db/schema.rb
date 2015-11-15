@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151108084517) do
+ActiveRecord::Schema.define(version: 20151109200834) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "profile_id",  limit: 4
@@ -82,9 +82,9 @@ ActiveRecord::Schema.define(version: 20151108084517) do
     t.integer  "verified",     limit: 4
     t.integer  "verify_id",    limit: 4
     t.integer  "inactive",     limit: 4
-    t.integer  "showPhone",    limit: 4
     t.integer  "role_id",      limit: 4
     t.integer  "community_id", limit: 4
+    t.integer  "showPhone",    limit: 4
     t.datetime "verifytime"
     t.string   "door_no",      limit: 255
     t.datetime "created_at",               null: false
@@ -137,10 +137,11 @@ ActiveRecord::Schema.define(version: 20151108084517) do
   add_index "tags", ["profile_id"], name: "fk_rails_5d750c0ce0", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",      limit: 255
-    t.string   "password",   limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "email",            limit: 255
+    t.string   "password_digest",  limit: 255
+    t.integer  "profile_complete", limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "yellowpages", force: :cascade do |t|

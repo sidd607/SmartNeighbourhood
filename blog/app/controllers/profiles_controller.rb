@@ -26,10 +26,19 @@ class ProfilesController < ApplicationController
   # POST /profiles.json
   def create
     @profile = Profile.new(profile_params)
-
+    @profile.verified = 0
+    @profile.verify_id = 0
+    @profile.inactive = 0
+    @profile.role_id = 1
+    @profile.community_id = 1
+    @profile.verifytime = nil
+    @user = User.find(session[:user_id])
+    @profile.email = @user.email
     respond_to do |format|
       if @profile.save
-        format.html { redirect_to root_url, notice: 'Profile was successfully created.' }
+        @user.profile_complete = 1
+        @user.save
+        format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @profile }
       else
         format.html { render :new }
@@ -70,6 +79,6 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:firstName, :LastName, :gender, :DOB, :phone, :email, :verified, :verify_id, :inactive, :role_id, :community_id, :showPhone, :verifytime, :door_no)
+      params.require(:profile).permit(:firstName, :LastName, :gender, :DOB, :phone, :showPhone, :door_no)
     end
 end
