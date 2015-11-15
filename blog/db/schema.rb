@@ -137,11 +137,18 @@ ActiveRecord::Schema.define(version: 20151109200834) do
   add_index "tags", ["profile_id"], name: "fk_rails_5d750c0ce0", using: :btree
 
   create_table "users", force: :cascade do |t|
+<<<<<<< HEAD
     t.string   "email",            limit: 255
     t.string   "password_digest",  limit: 255
     t.integer  "profile_complete", limit: 4
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+=======
+    t.string   "email",           limit: 255
+    t.string   "password_digest", limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+>>>>>>> 9526bf19ba848e1d74d0d125f6015229d5d86de2
   end
 
   create_table "yellowpages", force: :cascade do |t|
