@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :gender %><br>
-    <%= f.text_field :gender %>
+    <%= f.select :gender, [["Male", "m"], ["Female", "f"]] %>
   </div>
   <div class="field">
     <%= f.label :DOB %><br>
@@ -33,7 +33,7 @@
   </div>
   <div class="field">
     <%= f.label :showPhone %><br>
-    <%= f.number_field :showPhone %>
+    <%= f.select :showPhone, [["Yes", 1], ["No", 0]] %>
   </div>
   <div class="field">
     <%= f.label :door_no %><br>
