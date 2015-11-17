@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109200834) do
+ActiveRecord::Schema.define(version: 20151117162232) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "profile_id",  limit: 4
@@ -60,13 +60,13 @@ ActiveRecord::Schema.define(version: 20151109200834) do
     t.string   "body",         limit: 255
     t.datetime "create_date"
     t.datetime "update_date"
-    t.integer  "type",         limit: 4
     t.integer  "priority",     limit: 4
     t.integer  "report",       limit: 4
     t.float    "rating",       limit: 24
     t.integer  "rateCount",    limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "data_type",    limit: 4
   end
 
   add_index "posts", ["community_id"], name: "fk_rails_e070049175", using: :btree
@@ -137,18 +137,11 @@ ActiveRecord::Schema.define(version: 20151109200834) do
   add_index "tags", ["profile_id"], name: "fk_rails_5d750c0ce0", using: :btree
 
   create_table "users", force: :cascade do |t|
-<<<<<<< HEAD
     t.string   "email",            limit: 255
     t.string   "password_digest",  limit: 255
     t.integer  "profile_complete", limit: 4
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-=======
-    t.string   "email",           limit: 255
-    t.string   "password_digest", limit: 255
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
->>>>>>> 9526bf19ba848e1d74d0d125f6015229d5d86de2
   end
 
   create_table "yellowpages", force: :cascade do |t|
