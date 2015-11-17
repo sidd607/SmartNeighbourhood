@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  created_by: 1
+  responded_by: 1
+  post_id: 1
+  post_type: 1
+  view_stat: 1
+
+two:
+  created_by: 1
+  responded_by: 1
+  post_id: 1
+  post_type: 1
+  view_stat: 1
