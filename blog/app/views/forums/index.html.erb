@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Community</th>
+      <th>Profile</th>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Create date</th>
+      <th>Update date</th>
+      <th>Type</th>
+      <th>Priority</th>
+      <th>Report</th>
+      <th>Rating</th>
+      <th>Ratecount</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @forums.each do |forum| %>
+      <tr>
+        <td><%= forum.community_id %></td>
+        <td><%= forum.profile_id %></td>
+        <td><%= forum.title %></td>
+        <td><%= forum.body %></td>
+        <td><%= forum.create_date %></td>
+        <td><%= forum.update_date %></td>
+        <td><%= forum.data_type %></td>
+        <td><%= forum.priority %></td>
+        <td><%= forum.report %></td>
+        <td><%= forum.rating %></td>
+        <td><%= forum.rateCount %></td>
+        <td><%= link_to 'Show', forum %></td>
+        <td><%= link_to 'Edit', edit_post_path(forum) %></td>
+        <td><%= link_to 'Destroy', forum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_with_parameter_path(2) %>

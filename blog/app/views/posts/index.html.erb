@@ -29,7 +29,7 @@
         <td><%= post.body %></td>
         <td><%= post.create_date %></td>
         <td><%= post.update_date %></td>
-        <td><%= post.type %></td>
+        <td><%= post.data_type %></td>
         <td><%= post.priority %></td>
         <td><%= post.report %></td>
         <td><%= post.rating %></td>
@@ -44,4 +44,4 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path %>
+<%= link_to 'New Post', new_post_with_parameter_path(2) %>
