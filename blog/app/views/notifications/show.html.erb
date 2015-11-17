@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Created by:</strong>
+  <%= @notification.created_by %>
+</p>
+
+<p>
+  <strong>Responded by:</strong>
+  <%= @notification.responded_by %>
+</p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @notification.post_id %>
+</p>
+
+<p>
+  <strong>Post type:</strong>
+  <%= @notification.post_type %>
+</p>
+
+<p>
+  <strong>View stat:</strong>
+  <%= @notification.view_stat %>
+</p>
+
+<%= link_to 'Edit', edit_notification_path(@notification) %> |
+<%= link_to 'Back', notifications_path %>
