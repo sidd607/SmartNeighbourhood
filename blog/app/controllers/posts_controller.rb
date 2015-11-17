@@ -15,7 +15,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @post = Post.new(data_type: params[:data_type])
   end
 
   # GET /posts/1/edit
@@ -26,7 +26,14 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-
+    @user = User.find(session[:user_id])
+    @profile = Profile.find_by_email(@user.email)
+    @post.community_id = @profile.community_id
+    @post.profile_id = @profile.id
+    @post.priority = 0
+    @post.report = 0
+    @post.rating = 0
+    @post.rateCount = 0
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -70,6 +77,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:community_id, :profile_id, :title, :body, :create_date, :update_date, :type, :priority, :report, :rating, :rateCount)
+      params.require(:post).permit(:title, :body ,:data_type)
     end
 end

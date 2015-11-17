@@ -11,14 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :community_id %><br>
-    <%= f.number_field :community_id %>
-  </div>
-  <div class="field">
-    <%= f.label :profile_id %><br>
-    <%= f.number_field :profile_id %>
-  </div>
+    <%= f.hidden_field :data_type, :value => params[:data_type] %>
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
@@ -26,34 +19,6 @@
   <div class="field">
     <%= f.label :body %><br>
     <%= f.text_field :body %>
-  </div>
-  <div class="field">
-    <%= f.label :create_date %><br>
-    <%= f.datetime_select :create_date %>
-  </div>
-  <div class="field">
-    <%= f.label :update_date %><br>
-    <%= f.datetime_select :update_date %>
-  </div>
-  <div class="field">
-    <%= f.label :type %><br>
-    <%= f.number_field :type %>
-  </div>
-  <div class="field">
-    <%= f.label :priority %><br>
-    <%= f.number_field :priority %>
-  </div>
-  <div class="field">
-    <%= f.label :report %><br>
-    <%= f.number_field :report %>
-  </div>
-  <div class="field">
-    <%= f.label :rating %><br>
-    <%= f.text_field :rating %>
-  </div>
-  <div class="field">
-    <%= f.label :rateCount %><br>
-    <%= f.number_field :rateCount %>
   </div>
   <div class="actions">
     <%= f.submit %>
