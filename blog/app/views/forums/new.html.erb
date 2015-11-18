@@ -1,0 +1,34 @@
+<h1>Forums#new</h1>
+<p>Find me in app/views/forums/new.html.erb</p>
+
+<%= form_for(@forum) do |f| %>
+  <% if @forum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@forum.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @forum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br>
+    <%= f.text_field :body %>
+  </div>
+  <div class="field">
+    <%= f.label :create_date %><br>
+    <%= f.datetime_select :create_date %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

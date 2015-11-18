@@ -4,10 +4,11 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by_email(params[:email])
+    @profile = Profile.find_by_email(user.email)
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       if user.profile_complete == 1
-        redirect_to root_url, notice: "Successfully Logged In"
+        redirect_to @profile, notice: "Successfully Logged In"
       else
         redirect_to createprofile_url
       end

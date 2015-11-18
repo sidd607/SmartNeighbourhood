@@ -56,4 +56,10 @@
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<% if @post.data_type == 1 %>
+<a href="/blogs">Blogs</a>
+<% elsif @post.data_type == 2 %>
+<a href ="/forums">Forumss</a>
+<% else %>
+<a href ="/announcements">Announcements</a>
+<% end %>

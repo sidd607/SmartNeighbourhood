@@ -1,22 +1,51 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize, :user_profile_complete
+  before_filter :authorize, :user_profile_complete, :define_type, :find_user
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.where(data_type:3, community_id:@profile.community_id)
   end
 
   # GET /posts/1
   # GET /posts/1.json
+
   def show
   end
 
   # GET /posts/new
   def new
     @post = Post.new(data_type: params[:data_type])
+    puts "This is awesome"
+    puts @data_type
   end
+
+  def newBlog
+    @post = Post.new
+  end
+
+  def newAnnouncement
+    @post = Post.new
+  end
+
+  def newForum
+    @post = Post.new
+  end
+
+  def blogs
+    @posts = Post.where(data_type:1, community_id:@profile.community_id)
+  end
+
+  def forums
+    @posts = Post.where(data_type:2, community_id:@profile.community_id)
+  end
+
+  def announcements
+    @ann = Post.where(data_type:3, community_id:@profile.community_id)
+    
+  end
+
 
   # GET /posts/1/edit
   def edit
@@ -79,4 +108,14 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :body ,:data_type)
     end
+
+    def define_type
+      @data_type = params[:data_type]
+    end
+
+    def find_user
+      @user = User.find(session[:user_id])
+      @profile = Profile.find_by_email(@user.email)
+    end
+
 end

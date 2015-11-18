@@ -13,9 +13,13 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'createprofile', to: 'profiles#new', as: 'createprofile'
-  get 'forums', to: 'forums#index', as: 'forums'
-
-  get "post/new/:data_type" => "posts#new", :as => :new_post_with_parameter
+  get 'newBlog', to: 'posts#newBlog', as: 'newBlog'
+  get 'newForum', to: 'posts#newForum', as: 'newForum'
+  get 'newAnnouncement', to: 'posts#newAnnouncement', as: 'newAnnouncement'
+  get 'blogs', to: 'posts#blogs', as: 'blogs'
+  get 'forums', to: 'posts#forums', as: 'forums'
+  get 'announcements', to: 'posts#announcements', as: 'announcements'
+  get "posts/new/:data_type" => "posts#new", :as => :new_post_with_parameter
 
   resources :users
   resources :polls
@@ -29,7 +33,6 @@ Rails.application.routes.draw do
   resources :communities
   resources :roles
   resources :sessions
-  resources :forums
 
 
   # The priority is based upon order of creation: first created -> highest priority.
