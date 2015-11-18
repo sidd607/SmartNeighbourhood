@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_filter :logged_in, :except => :destroy
+
   def new
   end
 

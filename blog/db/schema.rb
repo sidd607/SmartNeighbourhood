@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117191243) do
+ActiveRecord::Schema.define(version: 20151117211700) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "profile_id",  limit: 4
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 20151117191243) do
     t.string   "city",       limit: 255
     t.string   "state",      limit: 255
     t.string   "country",    limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "created_by",   limit: 4
+    t.integer  "responded_by", limit: 4
+    t.integer  "post_id",      limit: 4
+    t.integer  "post_type",    limit: 4
+    t.integer  "view_stat",    limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -125,6 +135,15 @@ ActiveRecord::Schema.define(version: 20151117191243) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  create_table "simple_captcha_data", force: :cascade do |t|
+    t.string   "key",        limit: 40
+    t.string   "value",      limit: 6
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "simple_captcha_data", ["key"], name: "idx_key", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.string   "name",       limit: 255
