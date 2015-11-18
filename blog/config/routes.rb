@@ -13,12 +13,15 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'createprofile', to: 'profiles#new', as: 'createprofile'
-  get 'newBlog', to: 'posts#newBlog', as: 'newBlog'
-  get 'newForum', to: 'posts#newForum', as: 'newForum'
-  get 'newAnnouncement', to: 'posts#newAnnouncement', as: 'newAnnouncement'
-  get 'blogs', to: 'posts#blogs', as: 'blogs'
-  get 'forums', to: 'posts#forums', as: 'forums'
-  get 'announcements', to: 'posts#announcements', as: 'announcements'
+
+  get 'newBlog', to: 'posts#newBlog', as: 'newBlog' #"/newBlog" creates a new blog
+  get 'newForum', to: 'posts#newForum', as: 'newForum' #"/newforum" creates a new forum
+  get 'newAnnouncement', to: 'posts#newAnnouncement', as: 'newAnnouncement' #"/newAnnouncemet" creates a new Announcemet
+
+  get 'blogs', to: 'posts#blogs', as: 'blogs' #"/blogs" displays all blogs
+  get 'forums', to: 'posts#forums', as: 'forums' #"/forums" displays all forums
+  get 'announcements', to: 'posts#announcements', as: 'announcements' #"/announcements" displays all announcements
+
   get "posts/new/:data_type" => "posts#new", :as => :new_post_with_parameter
 
   resources :users

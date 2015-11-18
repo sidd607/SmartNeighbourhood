@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.where(data_type:3, community_id:@profile.community_id)
+    @posts = Post.all
   end
 
   # GET /posts/1
@@ -21,29 +21,29 @@ class PostsController < ApplicationController
     puts @data_type
   end
 
-  def newBlog
+  def newBlog #controller function for creating a new blog
     @post = Post.new
   end
 
-  def newAnnouncement
+  def newAnnouncement #controller function for creating a new Announcement
     @post = Post.new
   end
 
-  def newForum
+  def newForum #controller function for creating a new Forum
     @post = Post.new
   end
 
-  def blogs
+  def blogs #displaying all the blogs of the users community_id
     @posts = Post.where(data_type:1, community_id:@profile.community_id)
   end
 
-  def forums
+  def forums #displaying all the forum of the users community_id
     @posts = Post.where(data_type:2, community_id:@profile.community_id)
   end
 
-  def announcements
+  def announcements #displaying all the announcements of the users community_id
     @ann = Post.where(data_type:3, community_id:@profile.community_id)
-    
+
   end
 
 
