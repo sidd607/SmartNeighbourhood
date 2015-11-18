@@ -17,10 +17,12 @@ Rails.application.routes.draw do
   get 'newBlog', to: 'posts#newBlog', as: 'newBlog' #"/newBlog" creates a new blog
   get 'newForum', to: 'posts#newForum', as: 'newForum' #"/newforum" creates a new forum
   get 'newAnnouncement', to: 'posts#newAnnouncement', as: 'newAnnouncement' #"/newAnnouncemet" creates a new Announcemet
+  get 'newComplain', to: 'posts#newComplain', as: 'newComplain' #"/newforum" creates a new Complain
 
   get 'blogs', to: 'posts#blogs', as: 'blogs' #"/blogs" displays all blogs
   get 'forums', to: 'posts#forums', as: 'forums' #"/forums" displays all forums
   get 'announcements', to: 'posts#announcements', as: 'announcements' #"/announcements" displays all announcements
+  get 'complains', to: 'posts#complains', as: 'complains' #"/forums" displays all Complains
 
   get "posts/new/:data_type" => "posts#new", :as => :new_post_with_parameter
 

@@ -33,6 +33,11 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def newComplain #Comtroller function for Creating a New Forum
+    @post = Post.new
+  end
+
+
   def blogs #displaying all the blogs of the users community_id
     @posts = Post.where(data_type:1, community_id:@profile.community_id)
   end
@@ -43,7 +48,10 @@ class PostsController < ApplicationController
 
   def announcements #displaying all the announcements of the users community_id
     @ann = Post.where(data_type:3, community_id:@profile.community_id)
+  end
 
+  def complains #displaying all the announcements of the users community_id
+    @posts = Post.where(data_type:4, community_id:@profile.community_id)
   end
 
 
