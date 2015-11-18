@@ -29,9 +29,10 @@ Rails.application.routes.draw do
   resources :reports
   resources :ratings
   resources :tags
-  resources :comments
   resources :yellowpages
-  resources :posts
+  resources :posts do
+    resources :comments, :only => [:create]
+  end
   resources :profiles
   resources :communities
   resources :roles
