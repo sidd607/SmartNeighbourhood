@@ -38,7 +38,7 @@ class RatingsController < ApplicationController
         @notification.view_stat = 0
         options_of_post = ["blogs", "forums", "Announcements", "Complaints"]
         @notification.message = @current_profile.firstName + "(profile_id: " + @current_profile.id.to_s +
-            ")" + "Rated your " + options_of_post[@post.data_type - 6] + "(Post_id:" + @post.id.to_S + ")"
+            ")" + "Rated your " + options_of_post[@post.data_type - 6] + "(Post_id:" + @post.id.to_s + ")"
         @notification.save
         format.html { redirect_to @rating, notice: 'Rating was successfully created.' }
         format.json { render :show, status: :created, location: @rating }

@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     @post_creator = Profile.find(@post.profile_id)
     options_of_post = ["blogs", "forums", "Announcements", "Complaints"]
     @notification.message = @current_profile.firstName + "(profile_id: " + @current_profile.id.to_s +
-        ")" + "Commented on your " + options_of_post[@post.data_type - 1] + "(Post_id:" + @post.id.to_S + ")"
+        ")" + "Commented on your " + options_of_post[@post.data_type - 1] + "(Post_id:" + @post.id.to_s + ")"
 
 
     @notification.save
