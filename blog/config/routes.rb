@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get 'forums', to: 'posts#forums', as: 'forums' #"/forums" displays all forums
   get 'announcements', to: 'posts#announcements', as: 'announcements' #"/announcements" displays all announcements
   get 'complains', to: 'posts#complains', as: 'complains' #"/forums" displays all Complains
+  get "verify/:profile_id" => 'profiles#verify', :as => 'verify'
 
   get "posts/new/:data_type" => "posts#new", :as => :new_post_with_parameter
 

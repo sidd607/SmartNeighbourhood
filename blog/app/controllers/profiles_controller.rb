@@ -1,11 +1,11 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize
+  before_filter :authorize, :find_profile
 
   # GET /profiles
   # GET /profiles.json
   def index
-    @profiles = Profile.all
+    @profiles = Profile.where(community_id:@current_profile.community_id)
   end
 
   # GET /profiles/1
@@ -20,6 +20,9 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
+    if @current_profile.email != @profile.email
+      redirect_to @current_profile, notice: 'Sorry! Not allowed'
+    end
   end
 
   # POST /profiles
@@ -61,10 +64,22 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def verify
+    @profile = Profile.find(params[:profile_id])
+    puts @profile.email
+    @profile.verified=1
+    @profile.save
+    respond_to do |format|
+      format.html { redirect_to profiles_url, notice: 'Profile was successfully verified.' }
+      format.json { head :no_content }
+    end
+  end
   # DELETE /profiles/1
   # DELETE /profiles/1.json
   def destroy
     @profile.destroy
+    @userd = User.find_by_email(@profile.email)
+    @userd.destroy
     respond_to do |format|
       format.html { redirect_to profiles_url, notice: 'Profile was successfully destroyed.' }
       format.json { head :no_content }
@@ -72,13 +87,19 @@ class ProfilesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_profile
-      @profile = Profile.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_profile
+    @profile = Profile.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def profile_params
-      params.require(:profile).permit(:firstName, :LastName, :gender, :DOB, :phone, :showPhone, :door_no)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def profile_params
+    params.require(:profile).permit(:firstName, :LastName, :gender, :DOB, :phone, :showPhone, :door_no, :verified)
+  end
+
+  def find_profile
+    @user = User.find(session[:user_id])
+    @current_profile = Profile.find_by_email(@user.email)
+  end
+
 end

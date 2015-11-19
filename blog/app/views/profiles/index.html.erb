@@ -26,6 +26,7 @@
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
+        
         <td><%= profile.firstName %></td>
         <td><%= profile.LastName %></td>
         <td><%= profile.gender %></td>
@@ -42,7 +43,12 @@
         <td><%= profile.door_no %></td>
         <td><%= link_to 'Show', profile %></td>
         <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if @current_profile.verified == 2 %>
+            <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+        <% if profile.verified == 0 and @current_profile.verified >=1 %>
+            <td><%= link_to 'Verify', controller: "profiles", action: "verify", profile_id: profile.id  %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

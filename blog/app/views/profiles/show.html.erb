@@ -69,6 +69,8 @@
   <strong>Door no:</strong>
   <%= @profile.door_no %>
 </p>
+<% if User.find(session[:user_id]).email == @profile.email %>
+    <%= link_to 'Edit', edit_profile_path(@profile) %>
+<% end %>
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', profiles_path %>
