@@ -20,6 +20,9 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
+    if @current_profile.email != @profile.email
+      redirect_to @current_profile, notice: 'Sorry! Not allowed'
+    end
   end
 
   # POST /profiles
@@ -65,7 +68,6 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:profile_id])
     puts @profile.email
     @profile.verified=1
-    @profile.verify_id = session[:user_id]
     @profile.save
     respond_to do |format|
       format.html { redirect_to profiles_url, notice: 'Profile was successfully verified.' }

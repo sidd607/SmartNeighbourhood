@@ -8,7 +8,8 @@
       <th>Created by</th>
       <th>Responded by</th>
       <th>Post</th>
-      <th>Post type</th>
+      <th>Notification type</th>
+      <th>Message</th>
       <th>View stat</th>
       <th colspan="3"></th>
     </tr>
@@ -20,9 +21,10 @@
         <td><%= notification.created_by %></td>
         <td><%= notification.responded_by %></td>
         <td><%= notification.post_id %></td>
-        <td><%= notification.post_type %></td>
+        <td><%= notification.notification_type %></td>
+        <td><%= notification.message %></td>
         <td><%= notification.view_stat %></td>
-        <td><%= link_to 'Show', notification %></td>
+        <td><%= link_to 'Show',  post_path(Post.find(notification.post_id))%></td>
         <td><%= link_to 'Edit', edit_notification_path(notification) %></td>
         <td><%= link_to 'Destroy', notification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

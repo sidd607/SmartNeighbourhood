@@ -4,7 +4,10 @@ class NotificationsController < ApplicationController
   # GET /notifications
   # GET /notifications.json
   def index
-    @notifications = Notification.all
+    #@notifications = Notification.all
+    @user = User.find(session[:user_id])
+    @profile = Profile.find_by_email(@user.email)
+    @notifications = Notification.where("(notification_type < ? AND created_by = ? AND created_by != responded_by) OR (notification_type > ? AND responded_by = ? AND created_by != ?)", 11, @profile.id,10, @profile.community_id, @profile.id).order('notifications.created_at desc')
   end
 
   # GET /notifications/1
@@ -62,13 +65,13 @@ class NotificationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_notification
-      @notification = Notification.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_notification
+    @notification = Notification.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def notification_params
-      params.require(:notification).permit(:created_by, :responded_by, :post_id, :post_type, :view_stat)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def notification_params
+    params.require(:notification).permit(:created_by, :responded_by, :post_id, :notification_type, :view_stat, :messages)
+  end
 end

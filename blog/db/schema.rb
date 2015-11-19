@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151118210733) do
+ActiveRecord::Schema.define(version: 20151119024238) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "profile_id",  limit: 4
@@ -36,13 +36,14 @@ ActiveRecord::Schema.define(version: 20151118210733) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.integer  "created_by",   limit: 4
-    t.integer  "responded_by", limit: 4
-    t.integer  "post_id",      limit: 4
-    t.integer  "post_type",    limit: 4
-    t.integer  "view_stat",    limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "created_by",        limit: 4
+    t.integer  "responded_by",      limit: 4
+    t.integer  "post_id",           limit: 4
+    t.integer  "view_stat",         limit: 4
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "notification_type", limit: 4
+    t.string   "message",           limit: 255
   end
 
   create_table "polls", force: :cascade do |t|

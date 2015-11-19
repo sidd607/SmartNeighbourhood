@@ -12,7 +12,7 @@
       <th>Phone</th>
       <th>Email</th>
       <th>Verified</th>
-      <th>Verify</th>
+      <th>Verify_id</th>
       <th>Inactive</th>
       <th>Role</th>
       <th>Community</th>
@@ -42,7 +42,7 @@
         <td><%= profile.verifytime %></td>
         <td><%= profile.door_no %></td>
         <td><%= link_to 'Show', profile %></td>
-        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+        <td><%= link_to 'Edit', edit_profile_path(profile) if profile.id == @current_profile.id %></td>
         <% if @current_profile.verified == 2 %>
             <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>

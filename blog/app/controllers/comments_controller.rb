@@ -6,8 +6,19 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     #@comment = @post.comments.create!(params[:comment])
     @comment = @post.comments.create!(params.require(:comment).permit(:description, :profile_id, :post_id, :report))
+    @notification = Notification.create
+    @notification.created_by = @post.profile_id
+    @notification.responded_by = @current_profile.id
+    @notification.post_id = @post.id
+    @notification.notification_type = @post.data_type
+    @notification.view_stat = 0
+    @post_creator = Profile.find(@post.profile_id)
+    options_of_post = ["blogs", "forums", "Announcements", "Complaints"]
+    @notification.message = @current_profile.firstName + "(profile_id: " + @current_profile.id.to_s +
+        ")" + "Commented on your " + options_of_post[@post.data_type - 1] + "(Post_id:" + @post.id.to_S + ")"
 
 
+    @notification.save
     redirect_to @post
   end
 

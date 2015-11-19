@@ -63,13 +63,13 @@ class YellowpagesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_yellowpage
-      @yellowpage = Yellowpage.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_yellowpage
+    @yellowpage = Yellowpage.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def yellowpage_params
-      params.require(:yellowpage).permit(:profile_id, :name, :phone, :address, :description, :verified, :community_id, :AveRating, :totalRatings)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def yellowpage_params
+    params.require(:yellowpage).permit(:profile_id, :name, :phone, :address, :description, :verified, :community_id, :AveRating, :totalRatings)
+  end
 end

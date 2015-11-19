@@ -22,20 +22,33 @@ class PostsController < ApplicationController
   end
 
   def newBlog #controller function for creating a new blog
+    if @profile.verified==0
+      redirect_to blogs_url, notice: 'You are not allowed to create a post until you are verified'
+    end
     @post = Post.new
   end
 
   def newAnnouncement #controller function for creating a new Announcement
+    if @profile.verified==0
+      redirect_to announcements_url, notice: 'You are not allowed to create a post until you are verified'
+    end
     @post = Post.new
   end
 
   def newForum #controller function for creating a new Forum
+    if @profile.verified==0
+      redirect_to forums_url, notice: 'You are not allowed to create a post until you are verified'
+    end
     @post = Post.new
   end
 
   def newComplain #Comtroller function for Creating a New Forum
+    if @profile.verified==0
+      redirect_to complains_url, notice: 'You are not allowed to create a post until you are verified'
+    end
     @post = Post.new
   end
+
 
 
   def blogs #displaying all the blogs of the users community_id
@@ -73,6 +86,16 @@ class PostsController < ApplicationController
     @post.rateCount = 0
     respond_to do |format|
       if @post.save
+        if @post.data_type == 3
+          @notification = Notification.create
+          @notification.created_by = @post.profile_id
+          @notification.responded_by = @profile.community_id
+          @notification.post_id = @post.id
+          @notification.notification_type = 11
+          @notification.view_stat = 0
+          @notification.message = "New Announcement by " + @profile.firstName + "(profile_id:" + @profile.id.to_s + ")"
+          @notification.save
+        end
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
