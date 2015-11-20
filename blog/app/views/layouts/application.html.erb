@@ -7,13 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if current_user %>
-    Logged in as <%= current_user.email %>.
-    <%= link_to "Log Out", logout_path %>
-<% else %>
-    <%= link_to "Sign Up", signup_path %> or
-    <%= link_to "Log In", login_path %>
-<% end %>
+
+<header>
+  <div class="container">
+    <div class = "row">
+      <div class = "span9">
+        <h1>Smart Neighbourhood</h1>
+      </div>
+      <div class = "span6">
+        <% if current_user %>
+            Logged in as <%= current_user.email %>.
+            <%= link_to "Log Out", logout_path %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</header>
 
 <%= yield %>
 

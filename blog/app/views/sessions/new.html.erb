@@ -1,13 +1,29 @@
-<h1>Log In</h1>
 
 <%= form_tag sessions_path do %>
-    <div class="field">
-      <%= label_tag :email %><br>
-      <%= text_field_tag :email, params[:email] %>
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-6 col-md-offset-3">
+        <h2>Welcome Back <small>Please Login</small></h2>
+        <hr class="colorgraph">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-12">
+              <%= label_tag :email %><br>
+              <%= text_field_tag :email, params[:email] %>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-12">
+            <%= label_tag :password %><br>
+            <%= password_field_tag :password %>
+          </div>
+        </div>
+
+        <div class = "row">
+          <hr class="colorgraph">
+            <div class = "row">
+              <div class=" btn btn-primary"><%= submit_tag "Log In" %></div>
+            </div>
+        </div>
+      </div>
     </div>
-    <div class="field">
-      <%= label_tag :password %><br>
-      <%= password_field_tag :password %>
-    </div>
-    <div class="actions"><%= submit_tag "Log In" %></div>
 <% end %>
