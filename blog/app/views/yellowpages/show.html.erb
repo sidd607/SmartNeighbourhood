@@ -7,7 +7,7 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @yellowpage.name %>
+  <%= @yellowpage.name.titlecase %>
 </p>
 
 <p>
@@ -22,7 +22,7 @@
 
 <p>
   <strong>Description:</strong>
-  <%= @yellowpage.description %>
+  <%= @yellowpage.description.titlecase %>
 </p>
 
 <p>
@@ -36,12 +36,12 @@
 </p>
 
 <p>
-  <strong>Averating:</strong>
+  <strong>Average Rating:</strong>
   <%= @yellowpage.AveRating %>
 </p>
 
 <p>
-  <strong>Totalratings:</strong>
+  <strong>Total Ratings:</strong>
   <%= @yellowpage.totalRatings %>
 </p>
 

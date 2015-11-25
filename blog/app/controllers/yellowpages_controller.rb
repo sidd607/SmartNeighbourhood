@@ -1,6 +1,6 @@
 class YellowpagesController < ApplicationController
   before_action :set_yellowpage, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize, :user_profile_complete
+  before_filter :authorize, :user_profile_complete, :find_user
 
   # GET /yellowpages
   # GET /yellowpages.json
@@ -26,7 +26,9 @@ class YellowpagesController < ApplicationController
   # POST /yellowpages.json
   def create
     @yellowpage = Yellowpage.new(yellowpage_params)
-
+    @yellowpage.profile_id = @profile.id
+    @yellowpage.community_id = @profile.community_id
+    @yellowpage.verified = 0
     respond_to do |format|
       if @yellowpage.save
         format.html { redirect_to @yellowpage, notice: 'Yellowpage was successfully created.' }
@@ -70,6 +72,11 @@ class YellowpagesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def yellowpage_params
-    params.require(:yellowpage).permit(:profile_id, :name, :phone, :address, :description, :verified, :community_id, :AveRating, :totalRatings)
+    params.require(:yellowpage).permit(:profile_id, :name, :phone, :address, :description, :rating, :community_id, :AveRating, :totalRatings)
+  end
+
+  def find_user
+    @user = User.find(session[:user_id])
+    @profile = Profile.find_by_email(@user.email)
   end
 end

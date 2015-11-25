@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'createprofile', to: 'profiles#new', as: 'createprofile'
+  get 'yellowpages', to: 'yellowpages#index', as: 'yellowpages'
+  get 'newyellowpage', to: 'yellowpages#new', as: 'newyellowpage'
 
   get 'newBlog', to: 'posts#newBlog', as: 'newBlog' #"/newBlog" creates a new blog
   get 'newForum', to: 'posts#newForum', as: 'newForum' #"/newforum" creates a new forum
@@ -26,6 +28,8 @@ Rails.application.routes.draw do
   get "verify/:profile_id" => 'profiles#verify', :as => 'verify'
 
   get "posts/new/:data_type" => "posts#new", :as => :new_post_with_parameter
+
+  #get 'newyp', to: 'yellowpages#create', as: 'newYellowPage'
 
   resources :users
   resources :polls

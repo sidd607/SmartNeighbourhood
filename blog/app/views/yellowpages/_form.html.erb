@@ -11,16 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :profile_id %><br>
-    <%= f.number_field :profile_id %>
-  </div>
+
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :phone %><br>
+    <%= f.label :contact %><br>
     <%= f.text_field :phone %>
   </div>
   <div class="field">
@@ -31,22 +28,15 @@
     <%= f.label :description %><br>
     <%= f.text_field :description %>
   </div>
+
+
   <div class="field">
-    <%= f.label :verified %><br>
-    <%= f.number_field :verified %>
+    <%= f.label :Rating %> &nbsp &nbsp
+    <%= f.select :AveRating, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]] %>
+
   </div>
-  <div class="field">
-    <%= f.label :community_id %><br>
-    <%= f.number_field :community_id %>
-  </div>
-  <div class="field">
-    <%= f.label :AveRating %><br>
-    <%= f.text_field :AveRating %>
-  </div>
-  <div class="field">
-    <%= f.label :totalRatings %><br>
-    <%= f.number_field :totalRatings %>
-  </div>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
