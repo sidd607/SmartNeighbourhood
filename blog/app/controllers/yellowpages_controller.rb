@@ -1,6 +1,6 @@
 class YellowpagesController < ApplicationController
   before_action :set_yellowpage, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize, :user_profile_complete, :find_user
+  before_filter :authorize, :user_profile_complete, :find_user, :find_current
 
   # GET /yellowpages
   # GET /yellowpages.json
@@ -78,5 +78,10 @@ class YellowpagesController < ApplicationController
   def find_user
     @user = User.find(session[:user_id])
     @profile = Profile.find_by_email(@user.email)
+  end
+
+  def find_current
+    @user = User.find(session[:user_id])
+    @current_profile = Profile.find_by_email(@user.email)
   end
 end
