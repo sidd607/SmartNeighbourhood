@@ -1,44 +1,227 @@
 <!DOCTYPE html>
-<html>
 <head>
-  <title>Demoapp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Smart-Y</title>
+
+  <!-- Vendor CSS -->
+  <link href="<%= $base_url %>/vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
+  <%= stylesheet_link_tag "animate.min.css" %>
+  <link href="<%= $base_url %>/vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.css" rel="stylesheet">
+  <link href="<%= $base_url %>/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
+
+  <!-- CSS -->
+  <link href="<%= $base_url %>/css/app.min.1.css" rel="stylesheet">
+  <link href="<%= $base_url %>/css/app.min.2.css" rel="stylesheet">
 </head>
+
 <body>
-<header>
-  <h1>Smart Neighbourhood</h1>
+  <header id="header">
+    <ul class="header-inner">
+      <li data-trigger="#sidebar" id="menu-trigger">
+        <div class="line-wrap">
+          <div class="line top"></div>
+          <div class="line center"></div>
+          <div class="line bottom"></div>
+        </div>
+      </li>
 
+      <li class="logo hidden-xs">
+        <a href="index-2.html">Smart Neighbourhood</a>
+      </li>
 
-</header>
-<ul class="nav navbar-nav">
-  <li class="active">
-  <li><%=link_to "HOME", root_path%></li>
-  <li><%=link_to "ABOUT OUR SOCIETY"%></li>
-  <li><%=link_to "PROFILES", profiles_path %></li>
-  <li><%= link_to"GALLERY" %></li>
-  <li><%=link_to"POST", posts_path%></li>
-  <li><%=link_to"POLL" %></li>
-  <li><%=link_to"YELLOW PAGES" , yellowpages_path%></li>
-  <li><%=link_to"CONTACT" %></li>
+      <li class="pull-right">
+        <ul class="top-menu">
+          <li id="toggle-width">
+            <div class="toggle-switch">
+              <input hidden="hidden" id="tw-switch" type="checkbox">
+              <label class="ts-helper" for="tw-switch"></label>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a class="tm-notification" data-toggle="dropdown" href="#">
+              <i class="tmn-counts">9</i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg pull-right">
+              <div class="listview" id="notifications">
+                <div class="lv-header">
+                  Notification
 
-</ul>
-  <div class="container">
-    <div class = "row">
-      <div class = "span6">
-        <% if current_user %>
-            &nbsp   Logged in as <%= current_user.email %>.
-            <%= link_to "Log Out", logout_path %>
-        <% end %>
-      </div>
-    </div>
-  </div>
+                  <ul class="actions">
+                    <li class="dropdown">
+                      <a data-clear="notification" href="#">
+                        <i class="zmdi zmdi-check-all"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="lv-body">
+                  <a class="lv-item" href="#">
+                    <div class="media">
+                      <div class="pull-left">
+                        <img alt="" class="lv-img-sm" src="img/profile-pics/1.jpg">
+                      </div>
+                      <div class="media-body">
+                        <div class="lv-title">David Belle</div>
+                        <small class="lv-small">Cum sociis natoque penatibus et magnis dis parturient montes</small>
+                      </div>
+                    </div>
+                  </a>
+                </div>
 
+                <a class="lv-footer" href="#">View Previous</a>
+              </div>
 
+            </div>
+          </li>
 
+          <li class="dropdown">
+            <a class="tm-settings" data-toggle="dropdown" href="#"></a>
+            <ul class="dropdown-menu dm-icon pull-right">
+              <li class="hidden-xs">
+                <%= link_to(@current_profile) do %>
+                  <i class="zmdi zmdi-face"></i>
+                  View Profile
+                <% end %>
+              </li>
 
-<%= yield %>
+              <li>
+                <%= link_to(logout_path) do %>
+                  <i class="zmdi zmdi-account"></i>Logout
+                <% end %>
+              </li>
 
-</body>
+            </ul>
+          </li>
+        </li>
+      </ul>
+    </header>
+    <section id="main">
+      <aside id="sidebar">
+        <div class="sidebar-inner c-overflow">
+          <div class="profile-menu">
+            <a href="#">
+              <div class="profile-pic">
+                <img alt="" src="<%= $base_url %>/img/profile-pics/1.jpg">
+              </div>
+
+              <div class="profile-info">
+                <b><%= @current_profile.firstName %></b>
+                <%= @current_profile.LastName %>
+
+                <i class="zmdi zmdi-arrow-drop-down"></i>
+              </div>
+            </a>
+
+            <ul class="main-menu">
+              <li>
+                <%= link_to(@current_profile) do %>
+                  <i class="zmdi zmdi-account"></i>
+                  View Profile
+                <% end %>
+              </li>
+              <li>
+                <%= link_to(logout_path) do %>
+                  <i class="zmdi zmdi-time-restore"></i>
+                  Logout
+                <% end %>
+              </li>
+            </ul>
+          </div>
+
+          <ul class="main-menu">
+            <li>
+              <a href="<%= $base_url %>/posts">
+                <i class="zmdi zmdi-home"></i>
+                Home</a>
+            </li>
+            <li>
+              <a href="<%= $base_url %>/blogs">
+                <i class="zmdi zmdi zmdi-format-underlined"></i>
+                Blogs</a>
+            </li>
+            <li>
+              <a href="<%= $base_url %>/forums">
+                <i class="zmdi zmdi zmdi-collection-text"></i>
+                Forums</a>
+            </li>
+            <li>
+              <a href="<%= $base_url %>/announcements">
+                <i class="zmdi zmdi zmdi-swap-alt"></i>
+                Announcements</a>
+            </li>
+
+            <li>
+              <a href="<%= $base_url %>/complains">
+                <i class="zmdi zmdi zmdi-trending-up"></i>
+                Complaints</a>
+            </li>
+
+            <li>
+              <a href="#">
+                <i class="zmdi zmdi-calendar"></i>
+                Events calender</a>
+            </li>
+
+            <li>
+              <a href="#">
+                <i class="zmdi zmdi-layers"></i>
+                Yellow Pages</a>
+            </li>
+            <li>
+              <a href="<%= $base_url %>/people">
+                <i class="zmdi zmdi-layers"></i>
+                People</a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <%= yield %>
+    </section>
+
+    <footer id="footer">
+      Copyright &copy; 2015 Team HoshiarMohalla
+      <ul class="f-menu">
+        <li>
+          <a href="#">Abhinav</a>
+        </li>
+        <li>
+          <a href="#">Apoorv</a>
+        </li>
+        <li>
+          <a href="#">Rishabh</a>
+        </li>
+        <li>
+          <a href="#">Shivam</a>
+        </li>
+        <li>
+          <a href="#">Siddartha</a>
+        </li>
+        <li>
+          <a href="#">Ujjwal</a>
+        </li>
+      </ul>
+    </footer>
+
+    <!-- Older IE warning message -->
+    <!--[if lt IE 9]> <div class="ie-warning"> <h1 class="c-white">Warning!!</h1> <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p> <div class="iew-container"> <ul class="iew-download"> <li> <a href="http://www.google.com/chrome/"> <img src="img/browsers/chrome.png" alt=""> <div>Chrome</div> </a> </li> <li> <a href="https://www.mozilla.org/en-US/firefox/new/"> <img src="img/browsers/firefox.png" alt=""> <div>Firefox</div> </a> </li> <li> <a href="http://www.opera.com"> <img src="img/browsers/opera.png" alt=""> <div>Opera</div> </a> </li> <li> <a href="https://www.apple.com/safari/"> <img src="img/browsers/safari.png" alt=""> <div>Safari</div> </a> </li> <li> <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie"> <img src="img/browsers/ie.png" alt=""> <div>IE (New)</div> </a> </li> </ul> </div> <p>Sorry for the inconvenience!</p> </div> <![endif]-->
+
+    <!-- Javascript Libraries -->
+
+    <!-- Placeholder for IE9 -->
+    <!--[if IE 9 ]> <script src="vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script> <![endif]-->
+
+    <script src="<%= $base_url %>/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="<%= $base_url %>/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="<%= $base_url %>/vendors/bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+    <script src="<%= $base_url %>/vendors/bower_components/Waves/dist/waves.min.js"></script>
+    <script src="<%= $base_url %>/vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
+    <script src="<%= $base_url %>/js/functions.js"></script>
+    <script src="<%= $base_url %>/js/demo.js"></script>
+
+  </body>
+
 </html>

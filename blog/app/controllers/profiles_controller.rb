@@ -16,6 +16,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/new
   def new
     @profile = Profile.new
+    render :layout => false
   end
 
   # GET /profiles/1/edit

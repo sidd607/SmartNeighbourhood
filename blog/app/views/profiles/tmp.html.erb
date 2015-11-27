@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Profiles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Firstname &nbsp &nbsp</th>
+      <th>Lastname &nbsp &nbsp</th>
+      <th>Gender &nbsp &nbsp</th>
+      <th>Dob &nbsp &nbsp</th>
+      <th>Phone &nbsp &nbsp</th>
+      <th>Email &nbsp &nbsp</th>
+      <th>Verified &nbsp &nbsp</th>
+      <th>Verify_id &nbsp &nbsp</th>
+      <th>Inactive &nbsp &nbsp</th>
+      <th>Role &nbsp &nbsp</th>
+      <th>Community &nbsp &nbsp</th>
+      <th>Showphone &nbsp &nbsp</th>
+      <th>Verifytime &nbsp &nbsp</th>
+      <th>Door no &nbsp &nbsp</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @profiles.each do |profile| %>
+      <tr>
+
+        <td><%= profile.firstName.titlecase %></td>
+        <td><%= profile.LastName.titlecase %></td>
+        <td><%= profile.gender.titlecase %></td>
+        <td><%= profile.DOB %></td>
+        <td><%= profile.phone %></td>
+        <td><%= profile.email %></td>
+        <td><%= profile.verified %></td>
+        <td><%= profile.verify_id %></td>
+        <td><%= profile.inactive %></td>
+        <td><%= profile.role_id %></td>
+        <td><%= profile.community_id %></td>
+        <td><%= profile.showPhone %></td>
+        <td><%= profile.verifytime %></td>
+        <td><%= profile.door_no %></td>
+        <td><%= link_to 'Show', profile %></td>
+        <td><%= link_to 'Edit', edit_profile_path(profile) if profile.id == @current_profile.id %></td>
+        <% if @current_profile.verified == 2 %>
+            <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+        <% if profile.verified == 0 and @current_profile.verified >=1 %>
+            <td><%= link_to 'Verify', controller: "profiles", action: "verify", profile_id: profile.id  %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Profile', new_profile_path %>

@@ -15,3 +15,11 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+$(function(){
+
+  $("#posts_search").submit(function(){
+    alert("dgkl");
+    $.get(this.action, $(this).serialize(), null, "script");
+    return false;
+  });
+});

@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get 'complains', to: 'posts#complains', as: 'complains' #"/forums" displays all Complains
   get "verify/:profile_id" => 'profiles#verify', :as => 'verify'
 
+  get 'people', to: 'profiles#index', as: 'people'
   get "posts/new/:data_type" => "posts#new", :as => :new_post_with_parameter
 
   #get 'newyp', to: 'yellowpages#create', as: 'newYellowPage'

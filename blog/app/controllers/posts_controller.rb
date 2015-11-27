@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
   end
 
   # GET /posts/1
