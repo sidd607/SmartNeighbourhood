@@ -30,6 +30,8 @@ Rails.application.routes.draw do
   get 'people', to: 'profiles#index', as: 'people'
   get "posts/new/:data_type" => "posts#new", :as => :new_post_with_parameter
 
+  get 'tags/:tag', to: 'posts#blogs', as: 'tag'
+
   #get 'newyp', to: 'yellowpages#create', as: 'newYellowPage'
 
   resources :users
