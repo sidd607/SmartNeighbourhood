@@ -70,17 +70,6 @@
   <p><%= f.submit "Add comment" %></p>
 <% end %>
 
-<h2>Report Abuse</h2>
-<%= form_for [@post, Report.new] do |f| %>
-    <p>
-      <%= f.label :reason, "Reason for report" %><br/>
-      <%= f.text_area :reason %>
-      <%= f.hidden_field :data_type, :value => @post.data_type %>
-      <%= f.hidden_field :profile_id, :value => @current_profile.id %>
-    </p>
-    <p><%= f.submit "Report Abuse" %></p>
-<% end %>
-
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <% if @post.data_type == 1 %>
 <a href="/blogs">Blogs</a>

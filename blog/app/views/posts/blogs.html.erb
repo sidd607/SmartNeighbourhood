@@ -1,19 +1,13 @@
 
-<div id ="tag_cloud">
-  <% tag_cloud Post.tag_counts, %w[s m l] do |tag, css| %>
-    <%= link_to tag.name, tag_path(tag.name) %>
-  <% end %>
 
-</div>
 <% @posts.each do |post| %>
 <article>
   <div class="col-sm-offset-6 col-md-offset-3">
+
       <h2><%= link_to post.title, post %></h2>
       <p class=created_at"> Posted By <%= post.profile_id %></p>
       <p><%= post.body %></p>
-      <p>
-        Tags: <%= raw post.tag_list.map{ |t| link_to t, tag_path(t) }.join(', ') %>
-      </p>
+
       <p><%= link_to 'Edit', edit_post_path(post) %></p>
       <p><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
   </div>
