@@ -36,12 +36,12 @@ Rails.application.routes.draw do
 
   resources :users
   resources :polls
-  resources :reports
   resources :ratings
   resources :tags
   resources :yellowpages
   resources :posts do
     resources :comments, :only => [:create]
+    resources :reports, :only => [:create]
   end
   resources :profiles
   resources :communities

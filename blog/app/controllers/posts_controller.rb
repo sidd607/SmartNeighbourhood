@@ -12,6 +12,9 @@ class PostsController < ApplicationController
   # GET /posts/1.json
 
   def show
+    @report = Report.where(profile_id:@current_profile.id, post_id:@post.id)
+    puts "hello world"
+    puts @report
   end
 
   # GET /posts/new
