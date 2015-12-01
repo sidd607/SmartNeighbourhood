@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151129221948) do
+ActiveRecord::Schema.define(version: 20151127194152) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "profile_id",  limit: 4
@@ -146,60 +146,25 @@ ActiveRecord::Schema.define(version: 20151129221948) do
 
   add_index "simple_captcha_data", ["key"], name: "idx_key", using: :btree
 
-  create_table "survey_answers", force: :cascade do |t|
-    t.integer  "attempt_id",  limit: 4
-    t.integer  "question_id", limit: 4
-    t.integer  "option_id",   limit: 4
-    t.boolean  "correct",     limit: 1
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id",        limit: 4
+    t.integer  "taggable_id",   limit: 4
+    t.string   "taggable_type", limit: 255
+    t.integer  "tagger_id",     limit: 4
+    t.string   "tagger_type",   limit: 255
+    t.string   "context",       limit: 128
     t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
-  create_table "survey_attempts", force: :cascade do |t|
-    t.integer "participant_id",   limit: 4
-    t.string  "participant_type", limit: 255
-    t.integer "survey_id",        limit: 4
-    t.boolean "winner",           limit: 1
-    t.integer "score",            limit: 4
-  end
-
-  create_table "survey_options", force: :cascade do |t|
-    t.integer  "question_id", limit: 4
-    t.integer  "weight",      limit: 4,   default: 0
-    t.string   "text",        limit: 255
-    t.boolean  "correct",     limit: 1
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "survey_questions", force: :cascade do |t|
-    t.integer  "survey_id",  limit: 4
-    t.string   "text",       limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "survey_surveys", force: :cascade do |t|
-    t.string   "name",            limit: 255
-    t.text     "description",     limit: 65535
-    t.integer  "attempts_number", limit: 4,     default: 0
-    t.boolean  "finished",        limit: 1,     default: false
-    t.boolean  "active",          limit: 1,     default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id",         limit: 4,                     null: false
-  end
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
 
   create_table "tags", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.integer  "post_id",    limit: 4
-    t.integer  "profile_id", limit: 4
-    t.integer  "type",       limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string  "name",           limit: 255
+    t.integer "taggings_count", limit: 4,   default: 0
   end
 
-  add_index "tags", ["profile_id"], name: "fk_rails_5d750c0ce0", using: :btree
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",            limit: 255
@@ -236,7 +201,6 @@ ActiveRecord::Schema.define(version: 20151129221948) do
   add_foreign_key "profiles", "roles"
   add_foreign_key "ratings", "profiles"
   add_foreign_key "reports", "profiles"
-  add_foreign_key "tags", "profiles"
   add_foreign_key "yellowpages", "communities"
   add_foreign_key "yellowpages", "profiles"
 end

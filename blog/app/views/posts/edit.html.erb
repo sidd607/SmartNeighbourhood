@@ -1,6 +1,15 @@
 <h1>Editing Post</h1>
 
-<%= render 'form' %>
+<% if @post.data_type == 1 %>|
+    <%= render 'newBlog' %>
+<% end %>
+<% if @post.data_type == 2 %>|
+    <%= render 'newForum' %>
+<% end %>
+<% if @post.data_type == 3 %>|
+    <%= render 'form' %>
+<% end %>
+
 
 <%= link_to 'Show', @post %> |
 <%= link_to 'Back', posts_path %>

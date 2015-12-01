@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
   resources :notifications
+  resources :notifications
+  resources :notifications
+  resources :notifications
+  resources :notifications
+  resources :notifications
+  resources :notifications
+  resources :notifications
+  resources :notifications
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
@@ -22,24 +30,25 @@ Rails.application.routes.draw do
   get 'people', to: 'profiles#index', as: 'people'
   get "posts/new/:data_type" => "posts#new", :as => :new_post_with_parameter
 
+  get 'tags/:tag', to: 'posts#blogs', as: 'tag'
+
   #get 'newyp', to: 'yellowpages#create', as: 'newYellowPage'
 
   resources :users
   resources :polls
-  resources :reports
   resources :ratings
   resources :tags
   resources :yellowpages
   resources :posts do
     resources :comments, :only => [:create]
+    resources :reports, :only => [:create]
   end
   resources :profiles
   resources :communities
   resources :roles
   resources :sessions
-  resources :attempts
-  resources :surveys
-  get 'surveys/show'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

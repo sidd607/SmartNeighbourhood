@@ -1,3 +1,0 @@
-
-<%= "PAR " + params.to_s%>
-
