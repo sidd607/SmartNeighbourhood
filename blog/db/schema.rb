@@ -122,11 +122,11 @@ ActiveRecord::Schema.define(version: 20151127194152) do
   create_table "reports", force: :cascade do |t|
     t.integer  "profile_id",  limit: 4
     t.integer  "post_id",     limit: 4
-    t.integer  "type",        limit: 4
     t.string   "reason",      limit: 255
     t.datetime "reported_at"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.integer  "data_type",   limit: 4
   end
 
   add_index "reports", ["profile_id"], name: "fk_rails_b0728d5414", using: :btree
