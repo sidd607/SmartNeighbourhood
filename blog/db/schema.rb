@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151127194152) do
+ActiveRecord::Schema.define(version: 20151129221948) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "profile_id",  limit: 4
@@ -145,6 +145,50 @@ ActiveRecord::Schema.define(version: 20151127194152) do
   end
 
   add_index "simple_captcha_data", ["key"], name: "idx_key", using: :btree
+
+  create_table "survey_answers", force: :cascade do |t|
+    t.integer  "attempt_id",  limit: 4
+    t.integer  "question_id", limit: 4
+    t.integer  "option_id",   limit: 4
+    t.boolean  "correct",     limit: 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "survey_attempts", force: :cascade do |t|
+    t.integer "participant_id",   limit: 4
+    t.string  "participant_type", limit: 255
+    t.integer "survey_id",        limit: 4
+    t.boolean "winner",           limit: 1
+    t.integer "score",            limit: 4
+  end
+
+  create_table "survey_options", force: :cascade do |t|
+    t.integer  "question_id", limit: 4
+    t.integer  "weight",      limit: 4,   default: 0
+    t.string   "text",        limit: 255
+    t.boolean  "correct",     limit: 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "survey_questions", force: :cascade do |t|
+    t.integer  "survey_id",  limit: 4
+    t.string   "text",       limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "survey_surveys", force: :cascade do |t|
+    t.string   "name",            limit: 255
+    t.text     "description",     limit: 65535
+    t.integer  "attempts_number", limit: 4,     default: 0
+    t.boolean  "finished",        limit: 1,     default: false
+    t.boolean  "active",          limit: 1,     default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id",         limit: 4,                     null: false
+  end
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id",        limit: 4
