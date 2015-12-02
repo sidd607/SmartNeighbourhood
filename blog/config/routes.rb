@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   resources :notifications
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
@@ -32,7 +33,6 @@ Rails.application.routes.draw do
   resources :yellowpages
   resources :posts do
     resources :comments, :only => [:create]
-     resources :reports, :only => [:create]
   end
   resources :profiles
   resources :communities

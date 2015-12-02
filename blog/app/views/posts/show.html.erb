@@ -1,91 +1,64 @@
-<p id="notice"><%= notice %></p>
+<% @post_profile = Profile.find(@post.profile_id) %>
+<section id="content">
+<div class="container wall">
+<div class="row">
+<div class="col-md-12">
+<div class="card">
+<div class="card-header">
+<div class="media">
+<div class="media-body m-t-5">
+<h2><center><%= @post.title%> <small>Posted by <%=  @post_profile.firstName + " " + @post_profile.LastName %> on <%= @post.created_at.strftime("%B %d, %Y") %></small></center></h2>
+</div>
+</div>
+</div>
 
-<p>
-  <strong>Community:</strong>
-  <%= @post.community_id %>
-</p>
+<div class="card-body card-padding">
+<p><%= simple_format @post.body %></p>
 
-<p>
-  <strong>Profile:</strong>
-  <%= @post.profile_id %>
-</p>
+</div>
+</div>
+<div class = "card" >
+<div class="wall-comment-list">
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<!-- Comment Listing -->
+<div class="wcl-list">
+<%= render :partial => @post.comments %>
+</div>
 
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
-
-<p>
-  <strong>Create date:</strong>
-  <%= @post.create_date %>
-</p>
-
-<p>
-  <strong>Update date:</strong>
-  <%= @post.update_date %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @post.data_type %>
-</p>
-
-<p>
-  <strong>Priority:</strong>
-  <%= @post.priority %>
-</p>
-
-<p>
-  <strong>Report:</strong>
-  <%= @post.report %>
-</p>
-
-<p>
-  <strong>Rating:</strong>
-  <%= @post.rating %>
-</p>
-
-<p>
-  <strong>Ratecount:</strong>
-  <%= @post.rateCount %>
-</p>
-
-<h2>Comments</h2>
-  <div id="comments">
-         <%= render :partial => @post.comments %>
-  </div>
+<!-- Comment form -->
+</div>
+</div>
+<div class = "card">
+<div class = "card-header">
+</div>
+<div class = "card-body card-padding" >
+<div class = "form-group">
 <%= form_for [@post, Comment.new] do |f| %>
-  <p>
-    <%= f.label :description, "New comment" %><br/>
-    <%= f.text_area :description %>
-    <%= f.hidden_field :data_type, :value => @post.data_type %>
-    <%= f.hidden_field :profile_id, :value => @current_profile.id %>
-    <%= f.hidden_field :report, :value => 0 %>
-  </p>
-  <p><%= f.submit "Add comment" %></p>
-<% end %>
+<div class="fg-line">
 
-<h2>Report Abuse</h2>
-<%= form_for [@post, Report.new] do |f| %>
-    <p>
-      <%= f.label :reason, "Reason for report" %><br/>
-      <%= f.text_area :reason %>
-      <%= f.hidden_field :data_type, :value => @post.data_type %>
-      <%= f.hidden_field :profile_id, :value => @current_profile.id %>
-    </p>
-    <p><%= f.submit "Report Abuse" %></p>
+<%= f.text_area :description, class: 'form-control auto-size'%>
+<%= f.hidden_field :data_type, :value => @post.data_type %>
+<%= f.hidden_field :profile_id, :value => @current_profile.id %>
+<%= f.hidden_field :report, :value => 0 %>
+</div>
+<br>
+<center><button class = "btn btn-primary btn-sm m-t-10 waves-effect">
+Comment
+</button></center>
 <% end %>
+</div>
+</div>
+</div>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<div class = "card">
 <% if @post.data_type == 1 %>
-<a href="/blogs">Blogs</a>
+<a href = "<%= $base_url %>/blogs" ><div class = "btn btn-success col-md-12">Back To Blogs</div> </a>
 <% elsif @post.data_type == 2 %>
-<a href ="/forums">Forumss</a>
+<a href = "<%= $base_url %>/forums" ><div class = "btn btn-warning col-md-12">Back To Forums</div> </a>
 <% else %>
-<a href ="/announcements">Announcements</a>
+<a href = "<%= $base_url %>/announcements" ><div class = "btn btn-danger col-md-12">Back To Announcements</div> </a>
 <% end %>
+</div>
+</div>
+</div>
+</section>

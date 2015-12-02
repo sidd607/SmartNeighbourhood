@@ -1,11 +1,14 @@
 <%= div_for comment do %>
-<p>
-  <strong>
-    Posted <%= time_ago_in_words(comment.created_at) %> ago
-    <br>
-    Posted By <%= comment.profile_id %>
-  </strong>
-  <br/>
-  <%= comment.description  %>
-</p>
+<div class="media">
+    <a href="wall.html" class="pull-left">
+        <img src="<%= $base_url %>/img/profile-pics/5.jpg" alt="" class="lv-img-sm">
+    </a>
+    <div class="media-body">
+        <% @comment_profile = Profile.find(comment.profile_id) %>
+        <a href="<%= $base_url %>/profiles/<%= @comment_profile.id %>" class="a-title">
+          <%= @comment_profile.firstName + " " + @comment_profile.LastName %></a>
+        <small class="c-gray m-l-10"><%= time_ago_in_words(comment.created_at)%></small>
+        <p class="m-t-5 m-b-0"><%= simple_format comment.description %></p>
+    </div>
+</div>
 <% end %>

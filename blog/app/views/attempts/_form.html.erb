@@ -1,0 +1,18 @@
+<h1>Survey <%= @survey.name %></h1>
+<%= form_for(@attempt, :url => attempt_scope(@attempt)) do |f| %>
+  <%= f.fields_for :answers do |builder| %>
+    <ul>
+      <% @survey.questions.each_with_index do |question, index| %>
+        <li>
+          <p><%= question.text %></p>
+          <%= hidden_field_tag "survey_attempt[answers_attributes][#{index}][question_id]", question.id %>
+          <% question.options.each do |option| %>
+            <%= check_box_tag "survey_attempt[answers_attributes][#{index}][option_id][]", option.id %>
+            <%= option.text %> <br/ >
+          <% end -%>
+        </li>
+      <% end -%>
+    </ul>
+  <% end -%>
+  <%= f.submit "Submit" %>
+<% end -%>

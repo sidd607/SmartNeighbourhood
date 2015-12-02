@@ -32,7 +32,6 @@ Rails.application.routes.draw do
   resources :yellowpages
   resources :posts do
     resources :comments, :only => [:create]
-     resources :reports, :only => [:create]
   end
   resources :profiles
   resources :communities
@@ -40,7 +39,7 @@ Rails.application.routes.draw do
   resources :sessions
   resources :attempts
   resources :surveys
-  get 'surveys/show'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

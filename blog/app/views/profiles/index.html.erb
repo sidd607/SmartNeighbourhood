@@ -48,7 +48,8 @@
                                 <% if profile.verified == 0 and @current_profile.verified >=1 %>
                                   <button class="waves-effect" onclick="window.location.href='/verify/'+<%= profile.id %> +'?method=g>et'"><i class="zmdi zmdi-person-add"></i> Verify</button>
                                 <% else %>
-                                  <button class = "waves-effect"><i class="zmdi zmdi-person-add"></i><%= profile.role_id %></button>
+                                <% @profile_role = Role.find(profile.role_id) %>
+                                  <button class = "waves-effect"><i class="zmdi zmdi-person-add"></i><%= @profile_role.name %></button>
                                 <% end %>
                               </div>
                           </div>

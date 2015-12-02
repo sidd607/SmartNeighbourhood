@@ -1,46 +1,32 @@
-<h1>Forums !!<h3>
-  <h2>Listing Forums</h2>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Community</th>
-        <th>Profile</th>
-        <th>Title</th>
-        <th>Body</th>
-        <th>Create date</th>
-        <th>Update date</th>
-        <th>Type</th>
-        <th>Priority</th>
-        <th>Report</th>
-        <th>Rating</th>
-        <th>Ratecount</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @posts.each do |post| %>
-        <tr>
-          <td><%= post.community_id %></td>
-          <td><%= post.profile_id %></td>
-          <td><%= post.title %></td>
-          <td><%= post.body %></td>
-          <td><%= post.create_date %></td>
-          <td><%= post.update_date %></td>
-          <td><%= post.data_type %></td>
-          <td><%= post.priority %></td>
-          <td><%= post.report %></td>
-          <td><%= post.rating %></td>
-          <td><%= post.rateCount %></td>
-          <td><%= link_to 'Show', post %></td>
-          <td><%= link_to 'Edit', edit_post_path(post) %></td>
-          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <br>
-
-  <a href="/newForum"> Start a Forum </a>
+<section id="content">
+  <div class="container wall">
+    <div class="row">
+      <div class="col-md-12">
+        <div class = "block-header">
+            <h2>Discussion Forums</h2>
+        </div>
+        <div class = "card" onClick = "location.href = '/newBlog';">
+          <div class = "card-header">
+            <h2> Start a discussion</h2>
+          </div>
+        </div>
+        <% @posts.each do |post| %>
+          <% $location = $base_url.to_s + '/posts/' + post.id.to_s %>
+          <div class = "card" onClick = "location.href = '<%= escape_javascript($location)%>';">
+            <div class="card-header">
+              <div class="media">
+                <div class="media-body m-t-5">
+                  <% @post_profile = Profile.find(post.profile_id) %>
+                  <h2><%= post.title%> <small>By <%=  @post_profile.firstName + " " + @post_profile.LastName %> on <%= post.created_at.strftime("%B %d, %Y") %></small></h2>
+                </div>
+                <div class="card-body card-padding">
+                  <p><%= simple_format post.body%></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

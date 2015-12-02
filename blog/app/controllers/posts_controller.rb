@@ -5,16 +5,13 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
+    @posts = Post.search(params[:search]).paginate(:per_page => 10, :page => params[:page])
   end
 
   # GET /posts/1
   # GET /posts/1.json
 
   def show
-    @report = Report.where(profile_id:@current_profile.id, post_id:@post.id)
-    puts "hello world"
-    puts @report
   end
 
   # GET /posts/new
@@ -55,11 +52,7 @@ class PostsController < ApplicationController
 
 
   def blogs #displaying all the blogs of the users community_id
-    if params[:tag]
-      @posts = Post.where(data_type:1, community_id:@profile.community_id).tagged_with(params[:tag ])
-    else
-      @posts = Post.where(data_type:1, community_id:@profile.community_id)
-    end
+    @posts = Post.where(data_type:1, community_id:@profile.community_id)
   end
 
   def forums #displaying all the forum of the users community_id
@@ -150,7 +143,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body ,:data_type, :tag_list)
+      params.require(:post).permit(:title, :body ,:data_type)
     end
 
     def define_type

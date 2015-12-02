@@ -1,17 +1,42 @@
+<section id="content">
+  <div class="container wall">
+    <div class="row">
+      <div class="col-md-12" id = "posts">
+        <div class = "card">
+          <div class="lv-header-alt clearfix m-b-5">
+                        <h2 class="lvh-label hidden-xs">Something........</h2>
+
+                        <%= form_tag posts_path, :method => 'get', :id => "posts_search" do %>
+
+
+
+
+
+                        <div class="lvh-search">
+
+                            <%= text_field_tag :search, params[:search], class: 'lvhs-input', placeholder: 'search Posts'%>
+
+                            <i class="lvh-search-close">&times;</i>
+                        </div>
+
+                        <ul class="lv-actions actions">
+                            <li>
+                                <a href="contacts.html" class="lvh-search-trigger">
+                                    <i class="zmdi zmdi-search"></i>
+                                </a>
+                            </li>
+                            <% end %>
+
+                        </ul>
+                    </div>
+        </div>
+        <%= render 'posts' %>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
 <p id="notice"><%= notice %></p>
-
-<h1>Listing Posts</h1>
-
-<%= form_tag posts_path, :method => 'get', :id => "posts_search" do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
-
-<div id = "posts">
-  <%= render 'posts' %>
-</div>
-<br>
-
-<%= link_to 'New Post', new_post_with_parameter_path(2) %>
