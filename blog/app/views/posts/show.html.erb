@@ -45,6 +45,20 @@
 <center><button class = "btn btn-primary btn-sm m-t-10 waves-effect">
 Comment
 </button></center>
+<% end %><br><br>
+
+<%= form_for [@post, Report.new] do |f| %>
+  <div class="fg-line">
+
+    <%= f.text_area :reason, class: 'form-control auto-size'%>
+    <%= f.hidden_field :data_type, :value => @post.data_type %>
+    <%= f.hidden_field :profile_id, :value => @current_profile.id %>
+    <%= f.hidden_field :community_id, :value => @current_profile.community_id %>
+  </div>
+  <br>
+  <center><button class = "btn btn-primary btn-sm m-t-10 waves-effect">
+    Report
+  </button></center>
 <% end %>
 </div>
 </div>
