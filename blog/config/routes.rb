@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'yellowpages', to: 'yellowpages#index', as: 'yellowpages'
   get 'newyellowpage', to: 'yellowpages#new', as: 'newyellowpage'
 
+
   get 'newBlog', to: 'posts#newBlog', as: 'newBlog' #"/newBlog" creates a new blog
   get 'newForum', to: 'posts#newForum', as: 'newForum' #"/newforum" creates a new forum
   get 'newAnnouncement', to: 'posts#newAnnouncement', as: 'newAnnouncement' #"/newAnnouncemet" creates a new Announcemet
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
   get 'people', to: 'profiles#index', as: 'people'
   get "posts/new/:data_type" => "posts#new", :as => :new_post_with_parameter
   get 'tags/:tag', to: 'posts#blogs',as: :tag
-
+  get 'admin', to:  "reports#index", as: 'admin'
   #get 'newyp', to: 'yellowpages#create', as: 'newYellowPage'
   #get 'yellowpages/rate', to: 'yellowpages#rate', as: 'rating'
   get 'yellowpages/rate', to: 'yellowpages#rate'
@@ -43,6 +44,7 @@ Rails.application.routes.draw do
   resources :sessions
   resources :attempts
   resources :surveys
+  resources :reports
   get 'surveys/show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

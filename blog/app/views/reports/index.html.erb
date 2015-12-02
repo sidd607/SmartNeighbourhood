@@ -20,11 +20,12 @@
       <tr>
         <td><%= report.profile_id %></td>
         <td><%= report.post_id %></td>
-        <td><%= report.type %></td>
+        <td><%= report.data_type %></td>
         <td><%= report.profile_id %></td>
         <td><%= report.reason %></td>
         <td><%= report.reported_at %></td>
-        <td><%= link_to 'Show', report %></td>
+
+        <td><a href = "<%= $base_url %>/reports/<%= report.id %>" > show </a></td>
         <td><%= link_to 'Edit', edit_report_path(report) %></td>
         <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -33,5 +34,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Report', new_report_path %>

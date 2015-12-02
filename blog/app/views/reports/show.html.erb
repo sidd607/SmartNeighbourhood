@@ -12,7 +12,7 @@
 
 <p>
   <strong>Type:</strong>
-  <%= @report.type %>
+  <%= @report.data_type %>
 </p>
 
 <p>
@@ -29,6 +29,8 @@
   <strong>Reported at:</strong>
   <%= @report.reported_at %>
 </p>
+<% @post=Post.find(@report.post_id) %>
 
+<%= link_to 'Show', post_path(@post) %>
 <%= link_to 'Edit', edit_report_path(@report) %> |
 <%= link_to 'Back', reports_path %>

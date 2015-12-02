@@ -1,11 +1,11 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize, :user_profile_complete, :find_profile
+  before_filter :authorize, :user_profile_complete, :find_profile, :if_admin
 
   # GET /reports
   # GET /reports.json
   def index
-    @reports = Report.all
+    @reports = Report.where(community_id:@current_profile.community_id)
   end
 
   # GET /reports/1
@@ -91,5 +91,14 @@ class ReportsController < ApplicationController
   def find_profile
     @user = User.find(session[:user_id])
     @current_profile = Profile.find_by_email(@user.email)
+  end
+
+  def if_admin
+    if @current_profile.verified != 2
+      respond_to do |format|
+        format.html { redirect_to posts_url, notice: 'Report was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    end
   end
 end
