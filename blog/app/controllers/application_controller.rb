@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_filter :find_profile, :get_notify
+  #before_filter :find_profile, :get_notify
   
   def find_profile
     @user = User.find(session[:user_id])
@@ -12,13 +12,7 @@ class ApplicationController < ActionController::Base
   @base_url = "http://127.0.0.1:3000"
 
 
-  def get_notify
-    @user = User.find(session[:user_id])
-    @cur_profile = Profile.find_by_email(@user.email)
-    @notifications =  Notification.where(created_by:@cur_profile.id)
-    puts "sdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddgh"
-    puts @notifications
-  end
+
 
 
 

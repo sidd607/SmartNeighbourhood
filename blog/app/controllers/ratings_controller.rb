@@ -1,7 +1,12 @@
 class RatingsController < ApplicationController
   before_action :set_rating, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize, :user_profile_complete, :find_profile
+  before_filter :authorize, :user_profile_complete, :find_profile, :get_notify
 
+  def get_notify
+    @user = User.find(session[:user_id])
+    @cur_profile = Profile.find_by_email(@user.email)
+    @notifications =  Notification.where(created_by:@cur_profile.id)
+  end
   # GET /ratings
   # GET /ratings.json
   def index

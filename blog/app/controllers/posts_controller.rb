@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize, :user_profile_complete, :define_type, :find_user, :find_profile
+  before_filter :authorize, :user_profile_complete, :define_type, :find_user, :find_profile, :get_notify
 
   # GET /posts
   # GET /posts.json
@@ -139,6 +139,11 @@ class PostsController < ApplicationController
     @current_profile = Profile.find_by_email(@user.email)
   end
 
+  def get_notify
+    @user = User.find(session[:user_id])
+    @cur_profile = Profile.find_by_email(@user.email)
+    @notifications =  Notification.where(created_by:@cur_profile.id)
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

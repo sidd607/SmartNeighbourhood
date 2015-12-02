@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize, :find_profile
+  before_filter :authorize, :find_profile, :get_notify
 
   # GET /profiles
   # GET /profiles.json
@@ -100,5 +100,9 @@ class ProfilesController < ApplicationController
     @user = User.find(session[:user_id])
     @current_profile = Profile.find_by_email(@user.email)
   end
-
+  def get_notify
+    @user = User.find(session[:user_id])
+    @cur_profile = Profile.find_by_email(@user.email)
+    @notifications =  Notification.where(created_by:@cur_profile.id)
+  end
 end

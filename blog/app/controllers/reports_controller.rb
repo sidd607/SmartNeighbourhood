@@ -1,6 +1,12 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize, :user_profile_complete, :find_profile, :if_admin
+  before_filter :authorize, :user_profile_complete, :find_profile, :if_admin, :get_notify
+
+  def get_notify
+    @user = User.find(session[:user_id])
+    @cur_profile = Profile.find_by_email(@user.email)
+    @notifications =  Notification.where(created_by:@cur_profile.id)
+  end
 
   # GET /reports
   # GET /reports.json
@@ -96,7 +102,7 @@ class ReportsController < ApplicationController
   def if_admin
     if @current_profile.verified != 2
       respond_to do |format|
-        format.html { redirect_to posts_url, notice: 'Report was successfully destroyed.' }
+        format.html { redirect_to posts_url, notice: 'You are not admin' }
         format.json { head :no_content }
       end
     end

@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize, :user_profile_complete, :find_profile
+  before_filter :authorize, :user_profile_complete, :find_profile, :get_notify
 
   def create
     @post = Post.find(params[:post_id])
@@ -30,6 +30,12 @@ class CommentsController < ApplicationController
   def find_profile
     @user = User.find(session[:user_id])
     @current_profile = Profile.find_by_email(@user.email)
+  end
+
+  def get_notify
+    @user = User.find(session[:user_id])
+    @cur_profile = Profile.find_by_email(@user.email)
+    @notifications =  Notification.where(created_by:@cur_profile.id)
   end
 
 end
