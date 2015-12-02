@@ -1,0 +1,8 @@
+<%= form_for @rating, url: {action: "rate"}, html: {class: "nifty_form"} do |f| %>
+    <div class="field">
+      <%= f.label :Rating %> &nbsp &nbsp
+      <%= f.select :rate, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]] %>
+
+    </div>
+    <%= f.submit "Submit" %>
+<% end %>

@@ -57,7 +57,7 @@
           </li>
           <li class="dropdown">
             <a class="tm-notification" data-toggle="dropdown" href="#">
-              <i class="tmn-counts">9</i>
+              <i class="tmn-counts">0</i>
             </a>
             <div class="dropdown-menu dropdown-menu-lg pull-right">
               <div class="listview" id="notifications">
@@ -72,19 +72,21 @@
                     </li>
                   </ul>
                 </div>
+
                 <div class="lv-body">
-                  <a class="lv-item" href="#">
+                  <% @notifications.each do |notification| %>
+                      <% @notify_post = Post.find(notification.post_id) %>
+                  <a class="lv-item" href="<%= $base_url %>/posts/<%= @notify_post.id %>">
                     <div class="media">
-                      <div class="pull-left">
-                        <img alt="" class="lv-img-sm" src="img/profile-pics/1.jpg">
-                      </div>
                       <div class="media-body">
-                        <div class="lv-title">David Belle</div>
-                        <small class="lv-small">Cum sociis natoque penatibus et magnis dis parturient montes</small>
+
+                        <small class="lv-small"><%= notification.message %></small>
                       </div>
                     </div>
                   </a>
+                  <%end%>
                 </div>
+
 
                 <a class="lv-footer" href="#">View Previous</a>
               </div>
@@ -181,7 +183,7 @@
             </li>
 
             <li>
-              <a href="#">
+              <a href="<%= $base_url%>/yellowpages">
                 <i class="zmdi zmdi-layers"></i>
                 Yellow Pages</a>
             </li>

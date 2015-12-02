@@ -1,5 +1,6 @@
 class NotificationsController < ApplicationController
   before_action :set_notification, only: [:show, :edit, :update, :destroy]
+  before_filter :find_profile
 
   # GET /notifications
   # GET /notifications.json
@@ -74,4 +75,10 @@ class NotificationsController < ApplicationController
   def notification_params
     params.require(:notification).permit(:created_by, :responded_by, :post_id, :notification_type, :view_stat, :messages)
   end
+
+  def find_profile
+    @user = User.find(session[:user_id])
+    @current_profile = Profile.find_by_email(@user.email)
+  end
+
 end

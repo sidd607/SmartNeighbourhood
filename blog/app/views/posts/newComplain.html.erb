@@ -1,27 +1,61 @@
-<h1> Whats's your Complain </h1>
-<%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<section id="content">
+  <div class="container wall">
+    <div class="row">
+      <div class="col-md-12">
+        <div class = "block-header">
+          <h2>Register a complain</h2>
+        </div>
+        <div class="card">
+          <%= form_for(@post) do |f| %>
+              <% if @post.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+                    <ul>
+                      <% @post.errors.full_messages.each do |message| %>
+                          <li><%= message %></li>
+                      <% end %>
+                    </ul>
+                  </div>
+              <% end %>
+
+              <div class="card-header">
+                <h2>Title </h2><br>
+                <div class = "form-group">
+                  <div class="fg-line">
+                    <%= f.hidden_field :data_type, :value => 4 %>
+                    <%= f.text_area :title, class:'form-control input-lg' %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-body card-padding">
+                <p class="f-500 c-black m-b-20">Content</p>
+                <%= f.text_area :body, class: 'html-editor' %>
+              </div>
+
+              <div class="card-header">
+                <h2>Tags </h2><br>
+                <div class = "form-group">
+                  <div class="fg-line">
+                    <%= f.text_area :tag_list, class:'form-control input-lg' %>
+                  </div>
+                </div>
+              </div>
+
+              <div class = "card ">
+                <button class = "btn btn-primary col-md-12 col-xs-12">Post </button>
+              </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-  <% end %>
+  </div>
+</section>
 
-    <%= f.hidden_field :data_type, :value => 4 %>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_field :body %>
-  </div>
-  <div class="actions">
-    <%= f.submit "announce" %>
-  </div>
-<% end %>
+
+
+
+
+
+

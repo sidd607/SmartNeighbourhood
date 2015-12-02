@@ -33,6 +33,10 @@
         <td><%= link_to 'Show', yellowpage %></td>
         <td><%= link_to 'Edit', edit_yellowpage_path(yellowpage) %></td>
         <td><%= link_to 'Destroy', yellowpage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "Rate", yellowpage %></td>
+
+
+
       </tr>
     <% end %>
   </tbody>
@@ -40,4 +44,4 @@
 
 <br>
 
-<%= link_to 'New Yellowpage', newyellowpage_url %>
+<%= link_to 'Newpage', newyellowpage_url %>

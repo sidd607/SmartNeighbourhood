@@ -11,6 +11,7 @@ class YellowpagesController < ApplicationController
   # GET /yellowpages/1
   # GET /yellowpages/1.json
   def show
+    @rating = Rating.new
   end
 
   # GET /yellowpages/new
@@ -22,13 +23,21 @@ class YellowpagesController < ApplicationController
   def edit
   end
 
+
+
+
+
   # POST /yellowpages
   # POST /yellowpages.json
+
   def create
     @yellowpage = Yellowpage.new(yellowpage_params)
     @yellowpage.profile_id = @profile.id
+    @yellowpage.totalRatings = 1
+    @yellowpage.totalRatings = 1
     @yellowpage.community_id = @profile.community_id
     @yellowpage.verified = 0
+
     respond_to do |format|
       if @yellowpage.save
         format.html { redirect_to @yellowpage, notice: 'Yellowpage was successfully created.' }
@@ -66,8 +75,29 @@ class YellowpagesController < ApplicationController
 
   private
   # Use callbacks to share common setup or constraints between actions.
+
+  def rate
+    #@user = User.find(session[:user_id])
+    #@current_profile = Profile.find_by_email(@user.email)
+    #if @current_profile.id != @yellowpage.profile_id
+    #@rating = Rating.where("profile_id = ? AND post_id = ?", @current_profile.id, @yellowpage.id)
+    #if @rating = nil
+      @rating = Rating.new
+      @rating.post_id = @yellowpage.id
+      @rating.profile_id = @current_user.id
+      @rating.save
+    respond_to do |format|
+      if @rating.save
+        format.html { redirect_to @yellowpage, notice: 'Yellowpage was successfully rated.' }
+        format.json { render :show, status: :ok, location: @yellowpage }
+      end
+    end
+  end
+    #end
+
   def set_yellowpage
     @yellowpage = Yellowpage.find(params[:id])
+
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
@@ -85,3 +115,4 @@ class YellowpagesController < ApplicationController
     @current_profile = Profile.find_by_email(@user.email)
   end
 end
+

@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'posts#blogs',as: :tag
 
   #get 'newyp', to: 'yellowpages#create', as: 'newYellowPage'
+  #get 'yellowpages/rate', to: 'yellowpages#rate', as: 'rating'
+  get 'yellowpages/rate', to: 'yellowpages#rate'
 
   resources :users
   resources :polls

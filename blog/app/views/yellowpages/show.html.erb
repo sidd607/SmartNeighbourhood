@@ -47,3 +47,43 @@
 
 <%= link_to 'Edit', edit_yellowpage_path(@yellowpage) %> |
 <%= link_to 'Back', yellowpages_path %>
+
+
+<hr>
+<% @ifrate = Rating.where(profile_id:@current_profile.id) %>
+<% if @ifrate.nil? %>
+<%= form_for(@rating) do |f| %>
+<% if @rating.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rating.errors.count, "error") %> prohibited this rating from being saved:</h2>
+
+      <ul>
+        <% @rating.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
+<div class="field">
+
+  <%= f.hidden_field :post_id, :value => @yellowpage.id %>
+  <%= f.hidden_field :profile_id, :value => @current_profile.id %>
+
+
+</div>
+
+<div class="field">
+  <%= f.label :rate %> &nbsp &nbsp
+  <%= f.select :rate, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]] %>
+
+</div>
+
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>
+    <% else %>
+    <p> You can only rate once </p>
+    <%end%>
+<hr>

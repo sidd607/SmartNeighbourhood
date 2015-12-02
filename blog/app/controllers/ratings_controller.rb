@@ -1,6 +1,6 @@
 class RatingsController < ApplicationController
   before_action :set_rating, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize, :user_profile_complete
+  before_filter :authorize, :user_profile_complete, :find_profile
 
   # GET /ratings
   # GET /ratings.json
@@ -29,18 +29,23 @@ class RatingsController < ApplicationController
 
     respond_to do |format|
       if @rating.save
+        @yello = Yellowpage.find(@rating.post_id)
+        @yello.AveRating = (@yello.AveRating + @rating.rate)/(@yello.totalRatings + 1)
+        @yello.totalRatings += 1
+        @yello.save
+        @post = @yello
         @post = Post.find(@rating.post_id)
         @notification = Notification.create
         @notification.created_by = @post.profile_id
-        @notification.responded_by = @rating.profile_id
+        #@notification.responded_by = @rating.profile_id
         @notification.post_id = @post.id
         @notification.notification_type = 5 + @post.data_type
         @notification.view_stat = 0
         options_of_post = ["blogs", "forums", "Announcements", "Complaints"]
-        @notification.message = @current_profile.firstName + "(profile_id: " + @current_profile.id.to_s +
-            ")" + "Rated your " + options_of_post[@post.data_type - 6] + "(Post_id:" + @post.id.to_s + ")"
+          @notification.message = @current_profile.firstName + "(profile_id: " + @current_profile.id.to_s +
+            ")" + "Rated your " + options_of_post[@post.data_type - 6] + "(Post_id:" + ")"
         @notification.save
-        format.html { redirect_to @rating, notice: 'Rating was successfully created.' }
+        format.html { redirect_to @yello, notice: 'Rating was successfully created.' }
         format.json { render :show, status: :created, location: @rating }
       else
         format.html { render :new }
@@ -82,5 +87,9 @@ class RatingsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def rating_params
     params.require(:rating).permit(:post_id, :profile_id, :rate, :rated_at, :type, :Description)
+  end
+  def find_profile
+    @user = User.find(session[:user_id])
+    @current_profile = Profile.find_by_email(@user.email)
   end
 end

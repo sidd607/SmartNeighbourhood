@@ -90,7 +90,7 @@
 
                                             <dt>Mobile Phone</dt>
                                             <% if @profile.showPhone == 1 %>
-                                            <dd>00971 12345678 9</dd>
+                                            <dd><%=@profile.phone %></dd>
                                             <% else %>
                                             <dd>Not Available</dd>
                                             <% end %>

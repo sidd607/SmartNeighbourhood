@@ -1,14 +1,26 @@
 class ApplicationController < ActionController::Base
-  # before_filter :find_profile
+  before_filter :find_profile, :get_notify
   
-  # def find_profile
-  #   @user = User.find(session[:user_id])
-  #   @current_profile = Profile.find_by_email(@user.email)
-  # end
+  def find_profile
+    @user = User.find(session[:user_id])
+    @current_profile = Profile.find_by_email(@user.email)
+  end
+
 
   private
 
   @base_url = "http://127.0.0.1:3000"
+
+
+  def get_notify
+    @user = User.find(session[:user_id])
+    @cur_profile = Profile.find_by_email(@user.email)
+    @notifications =  Notification.where(created_by:@cur_profile.id)
+    puts "sdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddgh"
+    puts @notifications
+  end
+
+
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -29,4 +41,5 @@ class ApplicationController < ActionController::Base
   def user_profile_complete
     redirect_to createprofile_url, notice: "Please complete your profile" if current_user.profile_complete == 0
   end
+
 end
