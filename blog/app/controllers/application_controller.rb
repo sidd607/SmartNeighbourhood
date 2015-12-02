@@ -1,10 +1,10 @@
 class ApplicationController < ActionController::Base
-  before_filter :find_profile
+  # before_filter :find_profile
   
-  def find_profile
-    @user = User.find(session[:user_id])
-    @current_profile = Profile.find_by_email(@user.email)
-  end
+  # def find_profile
+  #   @user = User.find(session[:user_id])
+  #   @current_profile = Profile.find_by_email(@user.email)
+  # end
 
   private
 
