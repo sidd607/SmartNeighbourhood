@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151202095713) do
+ActiveRecord::Schema.define(version: 20151202102816) do
 
   create_table "bootsy_image_galleries", force: :cascade do |t|
     t.integer  "bootsy_resource_id",   limit: 4
@@ -134,13 +134,14 @@ ActiveRecord::Schema.define(version: 20151202095713) do
   add_index "ratings", ["profile_id"], name: "fk_rails_3a6ec44980", using: :btree
 
   create_table "reports", force: :cascade do |t|
-    t.integer  "profile_id",  limit: 4
-    t.integer  "post_id",     limit: 4
-    t.string   "reason",      limit: 255
+    t.integer  "profile_id",   limit: 4
+    t.integer  "post_id",      limit: 4
+    t.string   "reason",       limit: 255
     t.datetime "reported_at"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "data_type",   limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "data_type",    limit: 4
+    t.integer  "community_id", limit: 4
   end
 
   add_index "reports", ["profile_id"], name: "fk_rails_b0728d5414", using: :btree
