@@ -131,7 +131,15 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
+
   end
+
+  def delete
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path, notice: "post Deleted"
+  end
+
 
 
   def find_profile

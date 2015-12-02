@@ -1,89 +1,189 @@
+
+<section id="content">
+  <div class="container wall">
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class="card" id="profile-main">
+          <div class="pm-overview c-overflow">
+            <div class="pmo-pic">
+              <div class="p-relative">
+                <a href="#">
+
+                      <img class="img-responsive" src="<%= $base_url %>/img/profile-pics/4.jpg" alt="">
+
+
+
+                </a>
+
+              </div>
+              <div class="pmo-stat">
+                <h2 class="m-0 c-white"><%= @yellowpage.name %></h2>
+                <%= @yellowpage.description %>
+              </div>
+            </div>
+
+
+
+
+          </div>
+
+          <div class="pm-body clearfix">
+
+            <div class="pmb-block">
+              <div class="pmbb-header">
+                <h2><i class="zmdi zmdi-account m-r-5"></i> Information</h2>
+
+
+              </div>
+              <div class="pmbb-body p-l-30">
+                <div class="pmbb-view">
+                  <dl class="dl-horizontal">
+                    <dt>Full Name</dt>
+                    <dd><%= @yellowpage.name  %></dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Description</dt>
+                    <dd><%= @yellowpage.description %></dd>
+
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Phone Number</dt>
+                    <dd><%=  @yellowpage.phone%></dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Address</dt>
+                    <dd><%= @yellowpage.address %></dd>
+                  </dl>
+                </div>
+
+
+              </div>
+            </div>
+
+
+            <div class="pmb-block">
+              <div class="pmbb-header">
+                <h2></i> Rating: <%= @yellowpage.AveRating %></h2>
+                <% if @current_profile.id == @yellowpage.profile_id %>
+                    <ul class="actions">
+                      <li class="dropdown">
+                        <a href="profile-about.html" data-toggle="dropdown">
+                          <i class="zmdi zmdi-more-vert"></i>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-right">
+                          <li>
+                            <a data-pmb-action="edit" href="profile-about.html">Edit</a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                <% end %>
+              </div>
+              <div class="pmbb-body p-l-30">
+
+
+                </div>
+
+                <div class="pmbb-edit">
+                  <dl class="dl-horizontal">
+                    <%= form_for(@yellowpage) do |f| %>
+                        <dt class="p-t-10">Name</dt>
+                        <dd>
+                          <div class="fg-line">
+
+                            <%= f.text_area :name, class:'form-control', placeholder:'Name' %>
+                          </div>
+                        </dd>
+                        </dl>
+                        <dl class="dl-horizontal">
+                          <dt class="p-t-10">Description</dt>
+                          <dd>
+                            <div class="fg-line">
+
+                              <%= f.text_area :description, class:'form-control', placeholder:'Description' %>
+                            </div>
+                          </dd>
+                        </dl>
+                        <dl class="dl-horizontal">
+                        <dt class="p-t-10">Phone Number</dt>
+                        <dd>
+                          <div class="fg-line">
+
+                            <%= f.text_area :phone, class:'form-control', placeholder:'Phone Number' %>
+                          </div>
+                        </dd>
+                        </dl>
+                        <dl class="dl-horizontal">
+                        <dt class="p-t-10">Address</dt>
+                        <dd>
+                          <div class="fg-line">
+
+                            <%= f.text_area :address, class:'form-control', placeholder:'Address' %>
+                          </div>
+                        </dd>
+                        </dl>
+                        <div class="m-t-30">
+                          <button class="btn btn-primary btn-sm">Save</button>
+                          <button data-pmb-action="reset" class="btn btn-link btn-sm">Cancel</button>
+                        </div>
+                    <% end %>
+
+
+
+                    </div>
+              </div>
+            </div>
+          </div>
+        <div class="card">
+          <% @ifrate = Rating.where(profile_id:@current_profile.id, post_id:@yellowpage.id) %>
+          <% if @ifrate != nil %>
+              <p> You can only rate once </p>
+          <% else %>
+              <%= form_for(@rating) do |f| %>
+                  <% if @rating.errors.any? %>
+                      <div id="error_explanation">
+                        <h2><%= pluralize(@rating.errors.count, "error") %> prohibited this rating from being saved:</h2>
+
+                        <ul>
+                          <% @rating.errors.full_messages.each do |message| %>
+                              <li><%= message %></li>
+                          <% end %>
+                        </ul>
+                      </div>
+                  <% end %>
+
+                  <div class="field">
+
+                    <%= f.hidden_field :post_id, :value => @yellowpage.id %>
+                    <%= f.hidden_field :profile_id, :value => @current_profile.id %>
+
+
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :rate %> &nbsp &nbsp
+                    <%= f.select :rate, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]] %>
+
+                  </div>
+
+                  <div class="actions">
+                    <%= f.submit %>
+                  </div>
+              <% end %>
+
+          <%end%>
+          <hr>
+
+        </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Profile:</strong>
-  <%= @yellowpage.profile_id %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @yellowpage.name.titlecase %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @yellowpage.phone %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @yellowpage.address %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @yellowpage.description.titlecase %>
-</p>
-
-<p>
-  <strong>Verified:</strong>
-  <%= @yellowpage.verified %>
-</p>
-
-<p>
-  <strong>Community:</strong>
-  <%= @yellowpage.community_id %>
-</p>
-
-<p>
-  <strong>Average Rating:</strong>
-  <%= @yellowpage.AveRating %>
-</p>
-
-<p>
-  <strong>Total Ratings:</strong>
-  <%= @yellowpage.totalRatings %>
-</p>
-
-<%= link_to 'Edit', edit_yellowpage_path(@yellowpage) %> |
-<%= link_to 'Back', yellowpages_path %>
 
 
-<hr>
-<% @ifrate = Rating.where(profile_id:@current_profile.id) %>
-<% if @ifrate.nil? %>
-<%= form_for(@rating) do |f| %>
-<% if @rating.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@rating.errors.count, "error") %> prohibited this rating from being saved:</h2>
-
-      <ul>
-        <% @rating.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-<% end %>
-
-<div class="field">
-
-  <%= f.hidden_field :post_id, :value => @yellowpage.id %>
-  <%= f.hidden_field :profile_id, :value => @current_profile.id %>
-
-
-</div>
-
-<div class="field">
-  <%= f.label :rate %> &nbsp &nbsp
-  <%= f.select :rate, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]] %>
-
-</div>
-
-<div class="actions">
-  <%= f.submit %>
-</div>
-<% end %>
-    <% else %>
-    <p> You can only rate once </p>
-    <%end%>
-<hr>

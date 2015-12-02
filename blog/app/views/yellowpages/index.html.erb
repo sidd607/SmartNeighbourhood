@@ -1,47 +1,57 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Yellowpages</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Profile &nbsp &nbsp</th>
-      <th>Name &nbsp &nbsp</th>
-      <th>Phone &nbsp &nbsp</th>
-      <th>Address &nbsp &nbsp</th>
-      <th>Description &nbsp &nbsp</th>
-      <th>Verified &nbsp &nbsp</th>
-      <th>Community &nbsp &nbsp</th>
-      <th>Average Rating &nbsp &nbsp</th>
-      <th>Rate Counter &nbsp &nbsp</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @yellowpages.each do |yellowpage| %>
-      <tr>
-        <td><%= yellowpage.profile_id  %></td>
-        <td><%= yellowpage.name.titlecase  %></td>
-        <td><%= yellowpage.phone  %></td>
-        <td><%= yellowpage.address  %></td>
-        <td><%= yellowpage.description.titlecase  %></td>
-        <td><%= yellowpage.verified  %></td>
-        <td><%= yellowpage.community_id  %></td>
-        <td><%= yellowpage.AveRating  %></td>
-        <td><%= yellowpage.totalRatings  %></td>
-        <td><%= link_to 'Show', yellowpage %></td>
-        <td><%= link_to 'Edit', edit_yellowpage_path(yellowpage) %></td>
-        <td><%= link_to 'Destroy', yellowpage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to "Rate", yellowpage %></td>
 
 
 
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+<section id="content">
 
-<%= link_to 'Newpage', newyellowpage_url %>
+  <div class="container">
+
+    <div class="block-header">
+      <h2>Yellowpages<small>People at  your service</small></h2>
+    </div>
+
+    <div class="card">
+      <div class="lv-header-alt clearfix m-b-5">
+        
+      </div>
+
+
+      <div class="card-body card-padding">
+
+        <div class="contacts clearfix row">
+          <% @profiles = Profile.all %>
+          <% @yellowpages.each do |yellow| %>
+              <div class="col-md-2 col-sm-4 col-xs-6">
+                <div class="c-item">
+                  <%= link_to(yellow, class: "ci-avatar") do %>
+
+                          <img src="<%= $base_url %>/img/contacts/15.jpg" alt="">
+
+                  <% end %>
+                  <div class="c-info">
+                    <strong><%= yellow.name %></strong>
+                    <small><%= yellow.description %></small>
+                  </div>
+                  <div class="c-footer">
+                    <button class = "waves-effect" ><i class="zmdi zmdi-person-add"></i><%= yellow.AveRating %></button>
+                    <button class = "waves-effect" onClick="window.location.href='/yellowpages/<%= yellow.id %>';"> View</button>
+                  </div>
+                </div>
+              </div>
+          <% end %>
+
+
+
+        </div>
+
+
+      </div>
+    </div>
+    <div class = "card">
+      <center><h2><%= link_to 'Add a Contact', newyellowpage_url %></h2></center>
+    </div>
+  </div>
+
+</section>

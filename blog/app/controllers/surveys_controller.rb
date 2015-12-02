@@ -1,7 +1,7 @@
 class SurveysController < ApplicationController
 
 before_filter :load_survey, :only => [ :edit, :update]
-before_filter :authorize, :user_profile_complete, :find_profile
+before_filter :authorize, :user_profile_complete, :find_profile, :get_notify
 
   def find_profile
     @user = User.find(session[:user_id])
@@ -67,6 +67,12 @@ before_filter :authorize, :user_profile_complete, :find_profile
 
   def params_whitelist
     params.require(:survey_survey).permit(Survey::Survey::AccessibleAttributes)
+  end
+
+  def get_notify
+    @user = User.find(session[:user_id])
+    @cur_profile = Profile.find_by_email(@user.email)
+    @notifications =  Notification.where(created_by:@cur_profile.id)
   end
 
 end

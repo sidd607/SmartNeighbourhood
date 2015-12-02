@@ -4,7 +4,7 @@ class AttemptsController < ApplicationController
 
   before_filter :load_active_survey
   before_filter :normalize_attempts_data, :only => :create
-  before_filter :authorize, :user_profile_complete, :find_profile
+  before_filter :authorize, :user_profile_complete, :find_profile, :get_notify
   $id = 0
   def find_profile
     @user = User.find(session[:user_id])
@@ -78,5 +78,11 @@ class AttemptsController < ApplicationController
 
   def params_whitelist
     params.require(:survey_attempt).permit(Survey::Attempt::AccessibleAttributes)
+  end
+
+  def get_notify
+    @user = User.find(session[:user_id])
+    @cur_profile = Profile.find_by_email(@user.email)
+    @notifications =  Notification.where(created_by:@cur_profile.id)
   end
 end

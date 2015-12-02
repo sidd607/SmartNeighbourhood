@@ -1,6 +1,6 @@
 class PollsController < ApplicationController
   before_action :set_poll, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize, :user_profile_complete
+  before_filter :authorize, :user_profile_complete, :get_notify
 
   # GET /polls
   # GET /polls.json
@@ -80,4 +80,11 @@ class PollsController < ApplicationController
   def poll_params
     params.require(:poll).permit(:profile_id, :post_id, :options, :user_response, :interim, :finish_time, :anonimity, :vote_type, :community_id, :restricted_id)
   end
+
+  def get_notify
+    @user = User.find(session[:user_id])
+    @cur_profile = Profile.find_by_email(@user.email)
+    @notifications =  Notification.where(created_by:@cur_profile.id)
+  end
+
 end
