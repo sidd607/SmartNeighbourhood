@@ -1,9 +1,15 @@
 class ApplicationController < ActionController::Base
+  before_filter :find_profile
+  
+  def find_profile
+    @user = User.find(session[:user_id])
+    @current_profile = Profile.find_by_email(@user.email)
+  end
 
   private
 
   @base_url = "http://127.0.0.1:3000"
-  
+
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
