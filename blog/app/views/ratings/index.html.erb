@@ -26,7 +26,7 @@
         <td><%= rating.Description %></td>
         <td><%= link_to 'Show', rating %></td>
         <td><%= link_to 'Edit', edit_rating_path(rating) %></td>
-        <td><%= link_to 'Destroy', rating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', rating, method: :destroy, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

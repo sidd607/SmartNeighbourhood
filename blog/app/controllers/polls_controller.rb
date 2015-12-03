@@ -81,10 +81,5 @@ class PollsController < ApplicationController
     params.require(:poll).permit(:profile_id, :post_id, :options, :user_response, :interim, :finish_time, :anonimity, :vote_type, :community_id, :restricted_id)
   end
 
-  def get_notify
-    @user = User.find(session[:user_id])
-    @cur_profile = Profile.find_by_email(@user.email)
-    @notifications =  Notification.where(created_by:@cur_profile.id)
-  end
 
 end

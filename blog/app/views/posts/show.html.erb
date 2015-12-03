@@ -72,19 +72,12 @@ Comment
 </div>
 
   <div class = "card">
-    <% if @post.profile_id == @current_profile.id %>
+    <% if @post.profile_id == @current_profile.id or @current_profile.verified == 2 %>
 
         <%= link_to 'DELETE', edit_post_path(@post), class:'btn btn-danger col-md-12 col-xs-12' %>
 
     <% end %>
-  </div>
-  <div class = "card">
-    <% if @current_profile.verified == 2 %>
 
-        <%= link_to 'delete', edit_post_path(@post), class:'btn col-md-12 col-xs-12' %>
-
-    <% end %>
-  </div>
 <div class = "card">
 <% if @post.data_type == 1 %>
 <a href = "<%= $base_url %>/blogs" ><div class = "btn btn-success col-md-12">Back To Blogs</div> </a>

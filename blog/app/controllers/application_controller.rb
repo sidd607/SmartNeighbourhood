@@ -7,13 +7,22 @@ class ApplicationController < ActionController::Base
   end
 
 
-  private
-
-  @base_url = "http://127.0.0.1:3000"
 
 
 
 
+  def get_notify
+    @user = User.find(session[:user_id])
+    @cur_profile = Profile.find_by_email(@user.email)
+    if @cur_profile != nil
+      if @cur_profile.verified != 2
+        @notifications =  Notification.where("(created_by = ? and (notification_type < ? or notification_type = ?)) or (responded_by = ? and notification_type = ?)", @cur_profile.id, 5,6, @cur_profile.community_id, 5).order('notifications.created_at desc')
+      else
+        @notifications =  Notification.where("(created_by = ? and (notification_type < ? or notification_type = ?)) or (responded_by = ? and (notification_type = ? or notification_type = ?))", @cur_profile.id, 5,6, @cur_profile.community_id, 5,7).order('notifications.created_at desc')
+      end
+    end
+    @count_not = @notifications.count
+  end
 
 
   def current_user
@@ -36,4 +45,7 @@ class ApplicationController < ActionController::Base
     redirect_to createprofile_url, notice: "Please complete your profile" if current_user.profile_complete == 0
   end
 
+  private
+
+  @base_url = "http://127.0.0.1:3000"
 end

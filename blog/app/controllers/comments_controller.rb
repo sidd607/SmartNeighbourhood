@@ -5,20 +5,33 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     #@comment = @post.comments.create!(params[:comment])
-    @comment = @post.comments.create!(params.require(:comment).permit(:description, :profile_id, :post_id, :report))
-    @notification = Notification.create
-    @notification.created_by = @post.profile_id
-    @notification.responded_by = @current_profile.id
-    @notification.post_id = @post.id
-    @notification.notification_type = @post.data_type
-    @notification.view_stat = 0
-    @post_creator = Profile.find(@post.profile_id)
     options_of_post = ["blogs", "forums", "Announcements", "Complaints"]
-    @notification.message = @current_profile.firstName + "(profile_id: " + @current_profile.id.to_s +
-        ")" + "Commented on your " + options_of_post[@post.data_type - 1] + "(Post_id:" + @post.id.to_s + ")"
-
-
-    @notification.save
+    @comment = @post.comments.create!(params.require(:comment).permit(:description, :profile_id, :post_id, :report))
+    if @post.profile_id != @comment.profile_id
+      @notification = Notification.create
+      @notification.created_by = @post.profile_id
+      @notification.responded_by = @current_profile.id
+      @notification.post_id = @post.id
+      @notification.notification_type = @post.data_type
+      @notification.view_stat = 0
+      @notification.message = @current_profile.firstName + "(profile_id: " + @current_profile.id.to_s +
+          ")" + "Commented on your " + options_of_post[@post.data_type - 1] + "(Post_id:" + @post.id.to_s + ")"
+      @notification.save
+    end
+    @noti_comment = Comment.where("post_id = ?", @post.id)
+    @noti_comment.each do |comm|
+      if @post.profile_id != comm.profile_id and @comment.profile_id != comm.profile_id
+        @notification = Notification.create
+        @notification.created_by = comm.profile_id
+        @notification.responded_by = @current_profile.id
+        @notification.post_id = @post.id
+        @notification.notification_type = @post.data_type
+        @notification.message = @current_profile.firstName + "(profile_id: " + @current_profile.id.to_s +
+            ")" + "Commented on a " + options_of_post[@post.data_type - 1] + "(Post_id:" + @post.id.to_s + ") you have commented on"
+        @notification.view_stat = 0
+        @notification.save
+      end
+    end
     redirect_to @post
   end
 
@@ -32,10 +45,6 @@ class CommentsController < ApplicationController
     @current_profile = Profile.find_by_email(@user.email)
   end
 
-  def get_notify
-    @user = User.find(session[:user_id])
-    @cur_profile = Profile.find_by_email(@user.email)
-    @notifications =  Notification.where(created_by:@cur_profile.id)
-  end
+
 
 end

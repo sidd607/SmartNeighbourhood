@@ -100,9 +100,5 @@ class ProfilesController < ApplicationController
     @user = User.find(session[:user_id])
     @current_profile = Profile.find_by_email(@user.email)
   end
-  def get_notify
-    @user = User.find(session[:user_id])
-    @cur_profile = Profile.find_by_email(@user.email)
-    @notifications =  Notification.where(created_by:@cur_profile.id)
-  end
+
 end

@@ -8,7 +8,7 @@
 
 
   <!-- Vendor CSS -->
-
+ >
   <link href="<%= $base_url %>/vendors/bower_components/bootstrap-select/dist/css/bootstrap-select.css" rel="stylesheet">
   <link href="<%= $base_url %>/vendors/bower_components/nouislider/distribute/jquery.nouislider.min.css" rel="stylesheet">
   <link href="<%= $base_url %>/vendors/bower_components/summernote/dist/summernote.css" rel="stylesheet">
@@ -57,7 +57,7 @@
           </li>
           <li class="dropdown">
             <a class="tm-notification" data-toggle="dropdown" href="#">
-              <i class="tmn-counts">0</i>
+              <i class="tmn-counts"><%= @count_not%></i>
             </a>
             <div class="dropdown-menu dropdown-menu-lg pull-right">
               <div class="listview" id="notifications">
@@ -75,8 +75,11 @@
 
                 <div class="lv-body">
                   <% @notifications.each do |notification| %>
-                      <% @notify_post = Post.find(notification.post_id) %>
-                  <a class="lv-item" href="<%= $base_url %>/posts/<%= @notify_post.id %>">
+                      <% noti_option = ["/posts/", "/posts/", "/posts/", "/posts/", "/posts/", "/yellowpages/", "/reports/"] %>
+                      <% @notify_post = Post.find(notification.post_id) if notification.notification_type < 6%>
+                      <% @notify_post = Yellowpage.find(notification.post_id) if notification.notification_type == 6%>
+                      <% @notify_post = Report.find(notification.post_id) if notification.notification_type == 7%>
+                  <a class="lv-item" href="<%= $base_url %><%= noti_option[notification.notification_type - 1] %><%= @notify_post.id %>">
                     <div class="media">
                       <div class="media-body">
 

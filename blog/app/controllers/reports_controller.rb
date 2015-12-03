@@ -1,12 +1,7 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize, :user_profile_complete, :find_profile, :if_admin, :get_notify
-
-  def get_notify
-    @user = User.find(session[:user_id])
-    @cur_profile = Profile.find_by_email(@user.email)
-    @notifications =  Notification.where(created_by:@cur_profile.id)
-  end
+  before_filter :authorize, :user_profile_complete, :find_profile,  :get_notify
+  before_filter :if_admin, :except => :create
 
   # GET /reports
   # GET /reports.json
@@ -46,10 +41,21 @@ class ReportsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
+    options_of_post = ["blogs", "forums", "Announcements", "Complaints"]
     @report = @post.reports.create!(params.require(:report).permit(:reason, :data_type, :profile_id, :post_id, :community_id))
     @report.save
     @post.report = 1
     @post.save
+    @post_profile = Profile.find(@post.profile_id)
+    @notification = Notification.create
+    @notification.created_by = @current_profile.id
+    @notification.responded_by = @post_profile.community_id
+    @notification.post_id = @report.id
+    @notification.notification_type = 7
+    @notification.view_stat = 0
+    @notification.message = @current_profile.firstName + "(profile_id: " + @current_profile.id.to_s +
+        ")" + "Reported on " + options_of_post[@post.data_type - 1] + "(Post_id:" + @post.id.to_s + ")" + @post_profile.firstName
+    @notification.save
     redirect_to @post
 
   end
@@ -71,7 +77,9 @@ class ReportsController < ApplicationController
   # DELETE /reports/1
   # DELETE /reports/1.json
   def destroy
+    @report = Report.find(params[:id])
     @report.destroy
+    #redirect_to reports_url, notice: 'Report was successfully destroyed.'
     respond_to do |format|
       format.html { redirect_to reports_url, notice: 'Report was successfully destroyed.' }
       format.json { head :no_content }

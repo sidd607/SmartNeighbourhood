@@ -2,11 +2,7 @@ class RatingsController < ApplicationController
   before_action :set_rating, only: [:show, :edit, :update, :destroy]
   before_filter :authorize, :user_profile_complete, :find_profile, :get_notify
 
-  def get_notify
-    @user = User.find(session[:user_id])
-    @cur_profile = Profile.find_by_email(@user.email)
-    @notifications =  Notification.where(created_by:@cur_profile.id)
-  end
+
   # GET /ratings
   # GET /ratings.json
   def index
@@ -34,23 +30,20 @@ class RatingsController < ApplicationController
 
     respond_to do |format|
       if @rating.save
-        @yello = Yellowpage.find(@rating.post_id)
-        @yello.AveRating = (@yello.AveRating + @rating.rate)/(@yello.totalRatings + 1)
-        @yello.totalRatings += 1
-        @yello.save
-        @post = @yello
-        @post = Post.find(@rating.post_id)
+        @yellow = Yellowpage.find(@rating.post_id)
+        @yellow.AveRating = (@yellow.AveRating + @rating.rate)/(@yellow.totalRatings + 1)
+        @yellow.totalRatings += 1
+        @yellow.save
         @notification = Notification.create
-        @notification.created_by = @post.profile_id
-        #@notification.responded_by = @rating.profile_id
-        @notification.post_id = @post.id
-        @notification.notification_type = 5 + @post.data_type
+        @notification.created_by = @yellow.profile_id
+        @notification.responded_by = @rating.profile_id
+        @notification.post_id = @yellow.id
+        @notification.notification_type = 6
         @notification.view_stat = 0
-        options_of_post = ["blogs", "forums", "Announcements", "Complaints"]
           @notification.message = @current_profile.firstName + "(profile_id: " + @current_profile.id.to_s +
-            ")" + "Rated your " + options_of_post[@post.data_type - 6] + "(Post_id:" + ")"
+            ")" + "Rated your Contact"  + "(contact_id:" + ") " + @rating.rate.to_s
         @notification.save
-        format.html { redirect_to @yello, notice: 'Rating was successfully created.' }
+        format.html { redirect_to @yellow, notice: 'Rating was successfully created.' }
         format.json { render :show, status: :created, location: @rating }
       else
         format.html { render :new }

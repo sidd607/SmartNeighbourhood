@@ -30,13 +30,15 @@ Rails.application.routes.draw do
   get 'yellowpages/rate', to: 'yellowpages#rate'
 
   resources :users
+  resource :comments
+  #resource :reports
   resources :polls
   resources :ratings
   resources :tags
   resources :yellowpages
   resources :posts do
     resources :comments, :only => [:create]
-    resources :reports, :only => [:create]
+    resources :reports
   end
   resources :profiles
   resources :communities
