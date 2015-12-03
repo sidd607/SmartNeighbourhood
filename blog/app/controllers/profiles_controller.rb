@@ -5,12 +5,16 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
+    redirect_to "/notverified.html", notice: "Not authorized" if @current_profile.verified == 0
+
     @profiles = Profile.where(community_id:@current_profile.community_id)
   end
 
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+    redirect_to "/notverified.html", notice: "Not authorized" if @current_profile.verified == 0
+
   end
 
   # GET /profiles/new

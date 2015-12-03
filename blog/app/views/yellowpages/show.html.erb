@@ -137,10 +137,9 @@
             </div>
           </div>
         <div class="card">
-          <% @ifrate = Rating.where(profile_id:@current_profile.id, post_id:@yellowpage.id) %>
-          <% if @ifrate != nil %>
-              <p> You can only rate once </p>
-          <% else %>
+          <%= @ifrate.count %>
+          <% if @ifrate.count == 0 %>
+
               <%= form_for(@rating) do |f| %>
                   <% if @rating.errors.any? %>
                       <div id="error_explanation">
@@ -172,6 +171,8 @@
                     <%= f.submit %>
                   </div>
               <% end %>
+          <% else %>
+              <p> You can only rate once </p>
 
           <%end%>
           <hr>

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize, :user_profile_complete, :define_type, :find_user, :find_profile, :get_notify
+  before_filter :authorize, :user_profile_complete, :define_type, :find_user, :find_profile, :get_notify, :is_verified
 
   # GET /posts
   # GET /posts.json

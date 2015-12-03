@@ -1,6 +1,6 @@
 class YellowpagesController < ApplicationController
   before_action :set_yellowpage, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize, :user_profile_complete, :find_user, :find_current,:get_notify
+  before_filter :authorize, :user_profile_complete, :find_user, :find_current,:get_notify, :is_verified
 
 
 
@@ -14,6 +14,10 @@ class YellowpagesController < ApplicationController
   # GET /yellowpages/1.json
   def show
     @rating = Rating.new
+    @ifrate = Rating.where(profile_id:@current_profile.id, post_id:@yellowpage.id)
+    puts "Hello"
+    puts @ifrate.nil?
+    p 'hhhh'
   end
 
   # GET /yellowpages/new

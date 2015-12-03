@@ -6,11 +6,6 @@ class ApplicationController < ActionController::Base
     @current_profile = Profile.find_by_email(@user.email)
   end
 
-
-
-
-
-
   def get_notify
     @user = User.find(session[:user_id])
     @cur_profile = Profile.find_by_email(@user.email)
@@ -21,7 +16,12 @@ class ApplicationController < ActionController::Base
         @notifications =  Notification.where("(created_by = ? and (notification_type < ? or notification_type = ?)) or (responded_by = ? and (notification_type = ? or notification_type = ?))", @cur_profile.id, 5,6, @cur_profile.community_id, 5,7).order('notifications.created_at desc')
       end
     end
-    @count_not = @notifications.count
+    if @notifications == nil
+      @count_not = 0
+    else
+      @count_not = @notifications.count
+    end
+    #@count_not = @notifications.count
   end
 
 
@@ -33,6 +33,12 @@ class ApplicationController < ActionController::Base
 
   def authorize
     redirect_to login_url, notice: "Not authorized" if current_user.nil?
+  end
+
+  def is_verified
+    @user = User.find(session[:user_id])
+    @currentprofile = Profile.find_by_email(@user.email)
+    redirect_to "/notverified.html", notice: "Not authorized" if @currentprofile.verified == 0
   end
 
   def logged_in

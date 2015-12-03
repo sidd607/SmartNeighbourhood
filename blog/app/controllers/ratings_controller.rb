@@ -31,7 +31,7 @@ class RatingsController < ApplicationController
     respond_to do |format|
       if @rating.save
         @yellow = Yellowpage.find(@rating.post_id)
-        @yellow.AveRating = (@yellow.AveRating + @rating.rate)/(@yellow.totalRatings + 1)
+        @yellow.AveRating = (@yellow.AveRating*(@yellow.totalRatings) + @rating.rate)/(@yellow.totalRatings + 1)
         @yellow.totalRatings += 1
         @yellow.save
         @notification = Notification.create
