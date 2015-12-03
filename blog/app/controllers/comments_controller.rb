@@ -14,8 +14,7 @@ class CommentsController < ApplicationController
       @notification.post_id = @post.id
       @notification.notification_type = @post.data_type
       @notification.view_stat = 0
-      @notification.message = @current_profile.firstName + "(profile_id: " + @current_profile.id.to_s +
-          ")" + "Commented on your " + options_of_post[@post.data_type - 1] + "(Post_id:" + @post.id.to_s + ")"
+      @notification.message = @current_profile.firstName + " " + @current_profile.LastName + " Commented on your " + options_of_post[@post.data_type - 1]
       @notification.save
     end
     @noti_comment = Comment.where("post_id = ?", @post.id)
@@ -26,8 +25,7 @@ class CommentsController < ApplicationController
         @notification.responded_by = @current_profile.id
         @notification.post_id = @post.id
         @notification.notification_type = @post.data_type
-        @notification.message = @current_profile.firstName + "(profile_id: " + @current_profile.id.to_s +
-            ")" + "Commented on a " + options_of_post[@post.data_type - 1] + "(Post_id:" + @post.id.to_s + ") you have commented on"
+        @notification.message = @current_profile.firstName + " " + @current_profile.LastName + "Commented on a " + options_of_post[@post.data_type - 1] + " you have commented on"
         @notification.view_stat = 0
         @notification.save
       end

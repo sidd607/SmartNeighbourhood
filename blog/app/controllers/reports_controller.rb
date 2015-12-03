@@ -53,8 +53,7 @@ class ReportsController < ApplicationController
     @notification.post_id = @report.id
     @notification.notification_type = 7
     @notification.view_stat = 0
-    @notification.message = @current_profile.firstName + "(profile_id: " + @current_profile.id.to_s +
-        ")" + "Reported on " + options_of_post[@post.data_type - 1] + "(Post_id:" + @post.id.to_s + ")" + @post_profile.firstName
+    @notification.message = @current_profile.firstName + " " + @current_profile.LastName + " Reported on " + options_of_post[@post.data_type - 1] + " of " + @post_profile.firstName + " " + @post_profile.LastName
     @notification.save
     redirect_to @post
 

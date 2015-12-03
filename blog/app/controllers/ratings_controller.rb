@@ -40,8 +40,7 @@ class RatingsController < ApplicationController
         @notification.post_id = @yellow.id
         @notification.notification_type = 6
         @notification.view_stat = 0
-          @notification.message = @current_profile.firstName + "(profile_id: " + @current_profile.id.to_s +
-            ")" + "Rated your Contact"  + "(contact_id:" + ") " + @rating.rate.to_s
+          @notification.message = @current_profile.firstName + " " + @current_profile.LastName + " Rated your Contact"  + "(contact_id:" + ") " + @rating.rate.to_s
         @notification.save
         format.html { redirect_to @yellow, notice: 'Rating was successfully created.' }
         format.json { render :show, status: :created, location: @rating }
