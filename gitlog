@@ -1,0 +1,402 @@
+* commit f7f5f80 (HEAD, origin/master, origin/HEAD, master)
+| Author: savs95 <apoorvvikram.singh@iiitb.org>
+| Date:   76 seconds ago
+| 
+|     SmartNeighbourhood.pdf added
+|  
+* commit 8c14fc9
+| Author: Shivam <kumarshivam675@gmail.com>
+| Date:   29 hours ago
+| 
+|     Ready for presentation
+|  
+* commit 34c2bb2
+| Author: abhinavchawla <rishabh.bhadauria@gmail.com>
+| Date:   33 hours ago
+| 
+|     minor changes
+|  
+* commit ddb6c27
+| Author: abhinavchawla <rishabh.bhadauria@gmail.com>
+| Date:   34 hours ago
+| 
+|     made some changes in notification and fixed some bugs
+|  
+* commit 9bd0369
+| Author: abhinavchawla <rishabh.bhadauria@gmail.com>
+| Date:   2 days ago
+| 
+|     yellowpage updated
+|  
+* commit 4fe4a24
+| Author: abhinavchawla <rishabh.bhadauria@gmail.com>
+| Date:   2 days ago
+| 
+|     Ratings
+|    
+*   commit d341903
+|\  Merge: 6bcf035 21ef6e4
+| | Author: abhinavchawla <rishabh.bhadauria@gmail.com>
+| | Date:   2 days ago
+| | 
+| |     Merge branch 'master' of https://github.com/sidd607/SmartNeighbourhood
+| |   
+* | commit 6bcf035
+| | Author: abhinavchawla <rishabh.bhadauria@gmail.com>
+| | Date:   2 days ago
+| | 
+| |     ujjwal
+| |       
+| | *   commit 5ec0e64 (refs/stash)
+| | |\  Merge: 21ef6e4 51bccae
+| |/ /  Author: savs95 <apoorvvikram.singh@iiitb.org>
+| | |   Date:   28 hours ago
+| | |   
+| | |       WIP on master: 21ef6e4 Merge branch 'master' of https://github.com/sidd607/SmartNeighbourhood
+| | |    
+| | * commit 51bccae
+| |/  Author: savs95 <apoorvvikram.singh@iiitb.org>
+| |   Date:   28 hours ago
+| |   
+| |       index on master: 21ef6e4 Merge branch 'master' of https://github.com/sidd607/SmartNeighbourhood
+| |     
+| *   commit 21ef6e4
+| |\  Merge: d9eaf08 1761427
+| | | Author: abhinavchawla <abhinav.chawla.95@gmail.com>
+| | | Date:   2 days ago
+| | | 
+| | |     Merge branch 'master' of https://github.com/sidd607/SmartNeighbourhood
+| | |    
+| | * commit 1761427
+| | | Author: savs95 <apoorvvikram.singh@iiitb.org>
+| | | Date:   2 days ago
+| | | 
+| | |     old workflow deleted
+| | |    
+| | * commit 1de3ee2
+| |/  Author: savs95 <apoorvvikram.singh@iiitb.org>
+|/|   Date:   2 days ago
+| |   
+| |       workflow added
+| |   
+| * commit d9eaf08
+|/  Author: abhinavchawla <abhinav.chawla.95@gmail.com>
+|   Date:   2 days ago
+|   
+|       Made the admin console.
+|  
+* commit dcfea3f
+| Author: Shivam <kumarshivam675@gmail.com>
+| Date:   2 days ago
+| 
+|     user_id added to surveys_surveys table
+|  
+* commit e827078
+| Author: Shivam <kumarshivam675@gmail.com>
+| Date:   2 days ago
+| 
+|     report abuse done.minor tweaks to be done
+|  
+* commit 9ecfea1
+| Author: Shivam <kumarshivam675@gmail.com>
+| Date:   2 days ago
+| 
+|     migrations added
+|  
+* commit 8238088
+| Author: Shivam <kumarshivam675@gmail.com>
+| Date:   2 days ago
+| 
+|     tags done again
+|  
+* commit 362203c
+| Author: abhinavchawla <abhinav.chawla.95@gmail.com>
+| Date:   2 days ago
+| 
+|     minor changes
+|  
+* commit 460a9bf
+| Author: abhinavchawla <abhinav.chawla.95@gmail.com>
+| Date:   2 days ago
+| 
+|     Finnaly Stable
+|  
+* commit 5393247
+| Author: savs95 <apoorvvikram.singh@iiitb.org>
+| Date:   3 days ago
+| 
+|     survey try
+|  
+* commit 69cb242
+| Author: Shivam <kumarshivam675@gmail.com>
+| Date:   3 days ago
+| 
+|     restored back without the polls
+|  
+* commit 7a5fca2
+| Author: Shivam <kumarshivam675@gmail.com>
+| Date:   3 days ago
+| 
+|     restored back without the polls
+|  
+* commit b70903e
+| Author: Shivam <kumarshivam675@gmail.com>
+| Date:   3 days ago
+| 
+|     restoring tags and report abuse
+|  
+* commit 7dd5406
+| Author: savs95 <apoorvvikram.singh@iiitb.org>
+| Date:   3 days ago
+| 
+|     surveys added
+|  
+* commit 2715ffe
+| Author: Shivam <kumarshivam675@gmail.com>
+| Date:   3 days ago
+| 
+|     report abuse done. Notificaion after reporting abuse to be done
+|  
+* commit c25f348
+| Author: Shivam <kumarshivam675@gmail.com>
+| Date:   4 days ago
+| 
+|     tags implemented
+|  
+* commit edbd7a5
+| Author: sidd607 <siddartha.padhi@gmail.com>
+| Date:   7 days ago
+| 
+|     Yellowpages added a func
+|  
+* commit 724487b
+| Author: sidd607 <siddartha.padhi@gmail.com>
+| Date:   7 days ago
+| 
+|     UI CHANGES + search in Posts
+|  
+* commit 6123d3f
+| Author: abhinavchawla <abhinav.chawla.95@gmail.com>
+| Date:   9 days ago
+| 
+|     yellowPages Done
+|  
+* commit 9ad2e4a
+| Author: sidd607 <siddartha.padhi@gmail.com>
+| Date:   9 days ago
+| 
+|     minor changes
+|  
+* commit 68eb7cd
+| Author: Shivam <kumarshivam675@gmail.com>
+| Date:   2 weeks ago
+| 
+|     Little bit of UI changes done
+|  
+* commit c5bf26c
+| Author: Shivam <kumarshivam675@gmail.com>
+| Date:   2 weeks ago
+| 
+|     bootstrap development added
+|  
+* commit 92f407d
+| Author: abhinavchawla <rishabh.bhadauria@gmail.com>
+| Date:   2 weeks ago
+| 
+|     fixed the notification bug
+|  
+* commit 369602d
+| Author: abhinavchawla <rishabh.bhadauria@gmail.com>
+| Date:   2 weeks ago
+| 
+|     Added notifications
+|  
+* commit f10b1dd
+| Author: abhinavchawla <abhinav.chawla.95@gmail.com>
+| Date:   2 weeks ago
+| 
+|     Verification is done. Some minor bugs also fixed here and there
+|  
+* commit 3235519
+| Author: sidd607 <siddartha.padhi@gmail.com>
+| Date:   2 weeks ago
+| 
+|     Complains
+|  
+* commit 3f327ff
+| Author: sidd607 <siddartha.padhi@gmail.com>
+| Date:   2 weeks ago
+| 
+|     Workflow Model
+|  
+* commit a4bbf85
+| Author: sidd607 <siddartha.padhi@gmail.com>
+| Date:   2 weeks ago
+| 
+|     Functional Comments
+|  
+* commit 53c68b4
+| Author: sidd607 <siddartha.padhi@gmail.com>
+| Date:   2 weeks ago
+| 
+|     added Comments
+|    
+*   commit 027420d
+|\  Merge: 11ef8d1 5f2fdac
+| | Author: sidd607 <siddartha.padhi@gmail.com>
+| | Date:   2 weeks ago
+| | 
+| |     Merge branch 'master' of https://github.com/sidd607/SmartNeighbourhood
+| |   
+| * commit 5f2fdac
+| | Author: abhinavchawla <rishabh.bhadauria@gmail.com>
+| | Date:   2 weeks ago
+| | 
+| |     Implemented logged_in function where if you are logged in already, you can't go to signup page or login page
+| |   
+* | commit 11ef8d1
+|/  Author: sidd607 <siddartha.padhi@gmail.com>
+|   Date:   2 weeks ago
+|   
+|       Separated blogs and forums and announcements
+|    
+*   commit df08bca
+|\  Merge: 51db5fc fc6bb84
+| | Author: abhinavchawla <abhinav.chawla@iiitb.org>
+| | Date:   2 weeks ago
+| | 
+| |     Merge branch 'master' of https://github.com/sidd607/SmartNeighbourhood
+| |   
+| * commit fc6bb84
+| | Author: Shivam <kumarshivam675@gmail.com>
+| | Date:   2 weeks ago
+| | 
+| |     Forum separated from normasl blog. Stage is set for announcement and yellow pages. Over to padhi and Ujjwal
+| |   
+* | commit 51db5fc
+|/  Author: abhinavchawla <abhinav.chawla@iiitb.org>
+|   Date:   2 weeks ago
+|   
+|       view pages of notification
+|  
+* commit 9a188f3
+| Author: abhinavchawla <abhinav.chawla@iiitb.org>
+| Date:   2 weeks ago
+| 
+|     added post_id in comments and made notification table
+|  
+* commit 0da116f
+| Author: sidd607 <siddartha.padhi@gmail.com>
+| Date:   2 weeks ago
+| 
+|     changed column names in Post : Change port number and password in database.yml and run db:migrate
+|  
+* commit b8f676a
+| Author: Shivam <kumarshivam675@gmail.com>
+| Date:   3 weeks ago
+| 
+|     Drop down menu done and I am done for the DB project for the semester
+|  
+* commit 23193d8
+| Author: Shivam <kumarshivam675@gmail.com>
+| Date:   3 weeks ago
+| 
+|     Date range changed
+|  
+* commit 2dd8539
+| Author: Shivam <kumarshivam675@gmail.com>
+| Date:   3 weeks ago
+| 
+|     email validation done
+|  
+* commit 1554175
+| Author: Shivam <kumarshivam675@gmail.com>
+| Date:   3 weeks ago
+| 
+|     User Migration had merge conflict. resolved
+|    
+*   commit dcbe90f
+|\  Merge: 7044c13 9526bf1
+| | Author: Shivam <kumarshivam675@gmail.com>
+| | Date:   3 weeks ago
+| | 
+| |     profile done. Minor tweaks to be done
+| |   
+| * commit 9526bf1
+| | Author: siddartha <siddartha.padhi@gmail.com>
+| | Date:   3 weeks ago
+| | 
+| |     fixed some errors
+| |   
+| * commit 048a55a
+| | Author: root <siddartha.padhi@gmail.com>
+| | Date:   4 weeks ago
+| | 
+| |     liquid
+| |   
+* | commit 7044c13
+|/  Author: Shivam <kumarshivam675@gmail.com>
+|   Date:   3 weeks ago
+|   
+|       profile implementation done. Some minor tweaks to be done
+|  
+* commit e45fd67
+| Author: Shivam <kumarshivam675@gmail.com>
+| Date:   4 weeks ago
+| 
+|     authentication implemented using seesions controller. Mind you, cookies not done yet
+|    
+| * commit 423796a (origin/modelling-users)
+|/  Author: siddartha <siddartha.padhi@gmail.com>
+|   Date:   4 weeks ago
+|   
+|       implemented hashing of passwords
+|    
+*   commit e60d6d7
+|\  Merge: aa54a14 1b0c829
+| | Author: Shivam <kumarshivam675@gmail.com>
+| | Date:   4 weeks ago
+| | 
+| |     Merge branch 'master' of https://github.com/sidd607/SmartNeighbourhood
+| |   
+| * commit 1b0c829
+| | Author: abhinavchawla <abhinav.chawla@iiitb.org>
+| | Date:   4 weeks ago
+| | 
+| |     readme updated
+| |   
+* | commit aa54a14
+|/  Author: Shivam <kumarshivam675@gmail.com>
+|   Date:   4 weeks ago
+|   
+|       database updated as per the polls requirement
+|  
+* commit c2f8750
+| Author: Shivam <kumarshivam675@gmail.com>
+| Date:   4 weeks ago
+| 
+|     foreign key constrainsts done
+|  
+* commit e441cea
+| Author: sidd607 <sidd607@gmail.com>
+| Date:   3 months ago
+| 
+|     uploaded the pdf
+|  
+* commit a980d10
+| Author: sidd607 <sidd607@gmail.com>
+| Date:   3 months ago
+| 
+|     organised
+|  
+* commit 9fcf92b
+| Author: kumarshivam675 <kumarshivam675@gmail.com>
+| Date:   3 months ago
+| 
+|     removed relation between content post and yellow pages
+|  
+* commit 3203e1e
+  Author: kumarshivam675 <kumarshivam675@gmail.com>
+  Date:   3 months ago
+  
+      first commit
